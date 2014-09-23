@@ -1,0 +1,21 @@
+## Sphinx
+
+/_build
+/_static
+/_templates
+
+## Mac
+
+.DS_Store
+
+## Backup files created by editors
+*~
+.~*
+
+## PHPStorm
+.idea/
+*.ipr
+*.iml
+*.iws
+.idea_modules/
+atlassian-ide-plugin.xml
