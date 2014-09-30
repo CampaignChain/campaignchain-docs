@@ -470,7 +470,7 @@ from within Symfony's root.
 
 .. code-block:: bash
 
-    $ app/console sp:bower:install
+    $ php app/console sp:bower:install
 
 5. Get Bitly Access Token
 -------------------------
@@ -485,8 +485,8 @@ the *web/* directory.
 
 .. code-block:: bash
 
-    $ app/console assets:install web
-    $ app/console assetic:dump
+    $ php app/console assets:install web
+    $ php app/console assetic:dump
 
 7. Configure Scheduler
 ----------------------
@@ -504,7 +504,7 @@ tables.
 
 .. code-block:: bash
 
-    $ app/console doctrine:schema:update --force
+    $ php app/console doctrine:schema:update --force
 
 9. Start Server
 ---------------
@@ -513,7 +513,7 @@ Use PHP's built-in web server to run CampaignChain.
 
 .. code-block:: bash
 
-    $ app/console server:run
+    $ php app/console server:run
 
 10. Log in as Admin
 -------------------
@@ -523,7 +523,7 @@ Create an admin account with this command inside the Symfony root. Replace
 
 .. code-block:: bash
 
-    $ app/console fos:user:create admin --super-admin you@example.com yourpassword
+    $ php app/console fos:user:create admin --super-admin you@example.com yourpassword
 
 Point your Web browser to http://localhost:8000/ and log in with username
 ``admin`` and the password you provided in the above command.
