@@ -513,14 +513,6 @@ currently available:
         resource: "@CampaignChainOperationFacebookBundle/Resources/config/routing.yml"
         prefix:   /
 
-    groganz_campaignchain_channel_you_tube_analytics:
-        resource: "@CampaignChainChannelYouTubeAnalyticsBundle/Resources/config/routing.yml"
-        prefix:   /
-
-    groganz_campaignchain_channel_google_plus:
-        resource: "@CampaignChainChannelGooglePlusBundle/Resources/config/routing.yml"
-        prefix:   /
-
     groganz_campaignchain_activity_twitter:
         resource: "@CampaignChainActivityTwitterBundle/Resources/config/routing.yml"
         prefix:   /
