@@ -275,9 +275,6 @@ content.
               - '@CampaignChainCoreBundle/Resources/public/css/campaignchain/base.css'
         campaignchain_base_js:
             inputs:
-              - '@CampaignChainCoreBundle/Resources/public/components/moment/moment.js'
-              - '@CampaignChainCoreBundle/Resources/public/components/moment-timezone/moment-timezone.js'
-              - '@CampaignChainCoreBundle/Resources/public/components/moment-timezone/data/unpacked/latest.json'
               - '@CampaignChainCoreBundle/Resources/public/js/campaignchain/base.js'
               - '@CampaignChainCoreBundle/Resources/public/components/ScrollToFixed/jquery-scrolltofixed.js'
         jquery_js:
