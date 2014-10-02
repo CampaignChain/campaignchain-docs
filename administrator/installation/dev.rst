@@ -135,6 +135,28 @@ bundles.
 If you have previously specified additional CampaignChain packages in
 *composer.json*, then make sure you also register them here.
 
+For your convenience, here's a list of other official bundles available for
+CampaignChain that you could include in *app/AppKernel.php*:
+
+::
+
+    new CampaignChain\Channel\FacebookBundle\CampaignChainChannelFacebookBundle(),
+    new CampaignChain\Security\Authentication\Client\OAuthBundle\CampaignChainSecurityAuthenticationClientOAuthBundle(),
+    new CampaignChain\Activity\FacebookBundle\CampaignChainActivityFacebookBundle(),
+    new CampaignChain\Channel\TwitterBundle\CampaignChainChannelTwitterBundle(),
+    new CampaignChain\Activity\TwitterBundle\CampaignChainActivityTwitterBundle(),
+    new CampaignChain\Operation\FacebookBundle\CampaignChainOperationFacebookBundle(),
+    new CampaignChain\Operation\TwitterBundle\CampaignChainOperationTwitterBundle(),
+    new CampaignChain\Location\TwitterBundle\CampaignChainLocationTwitterBundle(),
+    new CampaignChain\Location\FacebookBundle\CampaignChainLocationFacebookBundle(),
+    new CampaignChain\Channel\LinkedInBundle\CampaignChainChannelLinkedInBundle(),
+    new CampaignChain\Location\LinkedInBundle\CampaignChainLocationLinkedInBundle(),
+    new CampaignChain\Channel\WebsiteBundle\CampaignChainChannelWebsiteBundle(),
+    new CampaignChain\Activity\LinkedInBundle\CampaignChainActivityLinkedInBundle(),
+    new CampaignChain\Operation\LinkedInBundle\CampaignChainOperationLinkedInBundle(),
+    new CampaignChain\Location\WebsiteBundle\CampaignChainLocationWebsiteBundle(),
+    new CampaignChain\DistributionCeBundle\CampaignChainDistributionCeBundle(),
+
 4.4 Add Configuration Options to *config.yml*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -216,8 +238,8 @@ configurations below.
 
         # These parameters are optionals !
 
-        # Turn the profiler on
-        profiler: on
+        # Turn the profiler off
+        profiler:
 
         # Turn file log on and specify log format
         file_log_format: default
@@ -410,7 +432,8 @@ the below configuration.
 4.7 Add the Routes
 ~~~~~~~~~~~~~~~~~~
 
-In the *app/config/routing.yml* file, add the following routes.
+In the *app/config/routing.yml* file, add the following routes for the minimum
+required packages to develop with CampaignChain.
 
 .. code-block:: yaml
 
@@ -444,6 +467,79 @@ In the *app/config/routing.yml* file, add the following routes.
 
 If you previously added more CampaignChain packages to *composer.json*, make
 sure you also add the corresponding routes.
+
+Here are the routing entries for all other official CampaignChain bundles
+currently available:
+
+.. code-block:: yaml
+
+    groganz_campaignchain_location_website:
+        resource: "@CampaignChainLocationWebsiteBundle/Resources/config/routing.yml"
+        prefix:   /
+
+    groganz_campaignchain_operation_linked_in:
+        resource: "@CampaignChainOperationLinkedInBundle/Resources/config/routing.yml"
+        prefix:   /
+
+    groganz_campaignchain_activity_linked_in:
+        resource: "@CampaignChainActivityLinkedInBundle/Resources/config/routing.yml"
+        prefix:   /
+
+    groganz_campaignchain_channel_website:
+        resource: "@CampaignChainChannelWebsiteBundle/Resources/config/routing.yml"
+        prefix:   /
+
+    groganz_campaignchain_location_linked_in:
+        resource: "@CampaignChainLocationLinkedInBundle/Resources/config/routing.yml"
+        prefix:   /
+
+    groganz_campaignchain_channel_linked_in:
+        resource: "@CampaignChainChannelLinkedInBundle/Resources/config/routing.yml"
+        prefix:   /
+
+    groganz_campaignchain_location_facebook:
+        resource: "@CampaignChainLocationFacebookBundle/Resources/config/routing.yml"
+        prefix:   /
+
+    groganz_campaignchain_location_twitter_user:
+        resource: "@CampaignChainLocationTwitterBundle/Resources/config/routing.yml"
+        prefix:   /
+
+    groganz_campaignchain_operation_twitter:
+        resource: "@CampaignChainOperationTwitterBundle/Resources/config/routing.yml"
+        prefix:   /
+
+    groganz_campaignchain_operation_facebook:
+        resource: "@CampaignChainOperationFacebookBundle/Resources/config/routing.yml"
+        prefix:   /
+
+    groganz_campaignchain_channel_you_tube_analytics:
+        resource: "@CampaignChainChannelYouTubeAnalyticsBundle/Resources/config/routing.yml"
+        prefix:   /
+
+    groganz_campaignchain_channel_google_plus:
+        resource: "@CampaignChainChannelGooglePlusBundle/Resources/config/routing.yml"
+        prefix:   /
+
+    groganz_campaignchain_activity_twitter:
+        resource: "@CampaignChainActivityTwitterBundle/Resources/config/routing.yml"
+        prefix:   /
+
+    groganz_campaignchain_channel_twitter:
+        resource: "@CampaignChainChannelTwitterBundle/Resources/config/routing.yml"
+        prefix:   /
+
+    groganz_campaignchain_activity_facebook:
+        resource: "@CampaignChainActivityFacebookBundle/Resources/config/routing.yml"
+        prefix:   /
+
+    groganz_campaignchain_security_authentication_client_o_auth:
+        resource: "@CampaignChainSecurityAuthenticationClientOAuthBundle/Resources/config/routing.yml"
+        prefix:   /
+
+    groganz_campaignchain_channel_facebook:
+        resource: "@CampaignChainChannelFacebookBundle/Resources/config/routing.yml"
+        prefix:   /
 
 4.8 Run Composer and Bower
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
