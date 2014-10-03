@@ -8,15 +8,27 @@ To enable :ref:`CTA tracking <dev-book-overview-cta>` for a Channel, follow thes
 
 In the CampaignChain header menu, click the *Create New* button and select *Location*.
 
+.. image:: /images/user/create_new_location.png
+    :width: 600px
+
 Then, choose the appropriate Location from the drop-down list, e.g. *Website* to
 include a Website into CTA tracking.
+
+.. image:: /images/administrator/select_new_website_location.png
+    :width: 600px
 
 Fill in the required data to connect the Channel. For example, provide the
 base URL of a Website (you can omit adding pages of the Website).
 
+.. image:: /images/administrator/connect_new_website_channel.png
+    :width: 600px
+
 Once you're done, CampaignChain will display a list of connected Channels to
 you. This list will include the unique Channel Tracking ID that has been assigned
 by CampaignChain to your new Channel. You will need this ID in the next step.
+
+.. image:: /images/administrator/channels_list.png
+    :width: 600px
 
 2. Include Tracking Code
 ------------------------
