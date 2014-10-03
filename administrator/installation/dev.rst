@@ -283,9 +283,8 @@ content.
             filters: [?yui_js]
         moment_js:
             inputs:
-              - '@CampaignChainCoreBundle/Resources/public/components/moment/moment.js'
-              - '@CampaignChainCoreBundle/Resources/public/components/moment-timezone/moment-timezone.js'
-              - '@CampaignChainCoreBundle/Resources/public/components/moment-timezone/data/unpacked/latest.json'
+                - '@CampaignChainCoreBundle/Resources/public/components/moment/moment.js'
+                - '@CampaignChainCoreBundle/Resources/public/components/moment-timezone/builds/moment-timezone-with-data.js'
         bootstrap_js:
             inputs:
                 - '%kernel.root_dir%/../vendor/twitter/bootstrap/js/transition.js'
