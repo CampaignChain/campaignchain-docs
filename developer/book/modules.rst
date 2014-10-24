@@ -175,28 +175,34 @@ the file varies depending on the module type and requirements.
 
 The typical structure of the *campaignchain.yml* file is as follows:
 
-.. code-block:: yaml
+.. code-block:: text
 
   modules:
-    [module-name]:
-      display_name: [display name]
-      channels:
-        - [channel identifier]
-        - [channel identifier]
-        ...
-      services:
-        - job: [service identifier]
-      routes:
-        - new: [route identifier]
-        - edit: [route identifier]
-        - edit_modal: [route identifier]
-        - edit_api: [route identifier]
-      hooks:
-        - [hook-name]: [true|false]
-        - [hook-name]: [true|false]
-        ...
-    [module-name]:
-      ...
+      |module-identifier|:
+          display_name: |display name|
+          channels:
+              - |channel identifier|
+              - |channel identifier|
+              ...
+          services:
+              - job: |service identifier|
+          routes:
+              - new: |route identifier|
+              - edit: |route identifier|
+              - edit_modal: |route identifier|
+              - edit_api: |route identifier|
+          hooks:
+              - |hook-name|: |true|false|
+              - |hook-name|: |true|false|
+              ...
+          system:
+              navigation:
+                  settings:
+                      - [|Nav item name|, |symfony_route|]
+                      ...
+                  ...
+      |module-identifier|:
+          ...
 
 *Example: An activity module's campaignchain.yml file lists the channels the
 activity belongs to and the Symfony routes to create and edit new activities.*
@@ -268,6 +274,12 @@ Parameter *hooks*
 Hooks can be assigned to a module by specifying the hook's identifier and 
 *true* to activate it or *false* to deactivate it. If a hook is omitted, 
 CampaignChain will regard it as inactive.
+
+Parameter *system*
+..................
+This parameter allows a module to define system-wide configuration options. For
+example, to add a new navigation item to the settings navigation menu available
+in the header of CampaignChain's graphical user interface.
 
 Parameters Specific to a Module Type
 ....................................
