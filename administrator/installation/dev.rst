@@ -549,6 +549,9 @@ required packages.
     in the version definition might help. For example, change ``"2.5.*"`` to ``"~2.5"`` for
     ``"symfony/symfony"`` in *composer.json*.
 
+    In case you run into a ``Allowed memory size of XXXXXX bytes exhausted`` error,
+    please `increase the PHP memory limit`_.
+
 To run Bower and install the required JavaScript packages, execute this command
 from within Symfony's root.
 
@@ -633,3 +636,4 @@ the Symfony root.
 .. _search for them on Packagist: https://packagist.org/search/?q=campaignchain
 .. _Download YUI Compressor: https://github.com/yui/yuicompressor/releases
 .. _Get CSSEmbed: https://github.com/nzakas/cssembed/downloads
+.. _increase the PHP memory limit: https://getcomposer.org/doc/articles/troubleshooting.md#memory-limit-errors
