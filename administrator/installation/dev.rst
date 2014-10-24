@@ -80,6 +80,16 @@ in the Symfony root to have a fully functional CampaignChain installation.
 If you would like to add additional CampaignChain packages to your installation,
 feel free to `search for them on Packagist`_.
 
+For your convenience, here's a list of all currently available additional
+CampaignChain packages, which will install other packages required by them:
+
+.. code-block:: json
+
+    "campaignchain/activity-facebook": "dev-master",
+    "campaignchain/activity-linkedin": "dev-master",
+    "campaignchain/activity-twitter": "dev-master",
+    "campaignchain/doc-html": "dev-master"
+
 Still in *composer.json*, add the post install and update scripts for the
 `BraincraftedBootstrapBundle`_ and the `SpBowerBundle`_.
 
