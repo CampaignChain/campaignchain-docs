@@ -10,4 +10,4 @@ Next, open the file *app/config/config.yml* in CampaignChain and replace
 
     # app/config/config.yml
     hpatoio_bitly:
-        access_token: insert_here_you_bitly_access_token
+        access_token: insert_here_your_bitly_access_token
