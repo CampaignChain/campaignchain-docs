@@ -55,7 +55,7 @@ copyright = u''
 # built documents.
 #
 # The short X.Y version.
-version = '1.0.0-alpha.1'
+version = 'dev-1.0.0-alpha.3'
 # The full version, including alpha/beta/rc tags.
 release = 'dev-1.0.0-alpha.3'
 
