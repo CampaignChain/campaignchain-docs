@@ -375,6 +375,7 @@ content.
         fullcalendar_css:
             inputs:
                 - '@CampaignChainCoreBundle/Resources/public/components/fullcalendar/dist/fullcalendar.css'
+                - '@CampaignChainCoreBundle/Resources/public/css/campaignchain/fullcalendar.css'
       bundles:
         - CampaignChainCoreBundle
         - CampaignChainReportAnalyticsMetricsPerActivityBundle
