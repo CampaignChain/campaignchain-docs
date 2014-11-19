@@ -367,6 +367,7 @@ content.
         dhtmlxgantt_css:
             inputs:
                 - '@CampaignChainCoreBundle/Resources/public/components/gantt/codebase/dhtmlxgantt.css'
+                - '@CampaignChainCoreBundle/Resources/public/css/campaignchain/dhtmlxgantt.css'
         flot_js:
             inputs:
                 - '@CampaignChainCoreBundle/Resources/public/components/flot/jquery.flot.js'
