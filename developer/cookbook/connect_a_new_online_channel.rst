@@ -1678,7 +1678,7 @@ as shown below:
       defaults: { _controller: AcmeCampaignChainActivityLinkedInBundle:ShareNewsItem:editModal }
 
     acme_campaignchain_activity_linkedin_share_news_item_edit_api:
-      pattern:  /api/v1/activity/linkedin/share-news-item/byactivity/{id}/edit
+      pattern:  /api/private/activity/linkedin/share-news-item/byactivity/{id}/edit
       defaults: { _controller: AcmeCampaignChainActivityLinkedInBundle:ShareNewsItem:editApi }
       options:
         expose: true
