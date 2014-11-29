@@ -448,6 +448,12 @@ the below configuration.
             - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
+            # REST API
+            - { path: ^/api/v1/.*, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+
+            # Installer
+            - { path: ^/install/.*, role: CAMPAIGNCHAIN_INSTALL }
+
             # Secured part of the site
             - { path: ^/, role: ROLE_USER }
             - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
