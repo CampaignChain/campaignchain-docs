@@ -12,110 +12,71 @@ can quickly try CampaignChain.
 2. Ensure that your MySQL server is running.
 
 1. Download CampaignChain
---------------------------
+-------------------------
 
 Download the Community Edition from `www.campaignchain.com/download`_.
 
 Extract the contents of the archive to a directory on your system.
 
-2. Set up Database
--------------------
+Make sure that PHP has access to all files in the CampaignChain directory. On
+Linux, you could issue this command:
 
-Launch the MySQL command-line client and create a new MySQL database for the
+.. code-block:: bash
+
+    $ chown -R www-data:www-data /path/to/campaignchain
+
+... with ``www-data`` being the HTTP server's user and group, respectively.
+
+2. Set up Database
+------------------
+
+Launch your MySQL client of choice and create a new MySQL database for the
 application.
 
-.. code-block:: mysql
+3. Install Composer
+-------------------
 
-    CREATE DATABASE campaignchain_db;
-
-At the same time, create a user with full privileges to the new database, as
-shown below:
-
-.. code-block:: mysql
-
-    GRANT ALL on campaignchain_db.* TO 'campaignchain'@'%' IDENTIFIED BY 'gue55me';
-
-Edit the *app/config/parameters.yml* file and define the database host, name,
-user and password.
-
-*Example:*
-
-.. code-block:: yaml
-
-    parameters:
-        database_driver: pdo_mysql
-        database_host: 127.0.0.1
-        database_port: null
-        database_name: campaignchain_db
-        database_user: campaignchain
-        database_password: gue55me
-
-From within the application's root directory, issue the following command which
-will create the table structures in the database:
+CampaignChain utilizes `Composer`_ for its package and modules management. Install
+it with this command:
 
 .. code-block:: bash
 
-    $ php app/console doctrine:schema:update --force
+    $ curl -sS https://getcomposer.org/installer | php
 
-3. Register Apps with Various Online Channels
------------------------------------------------
+4. Install Base System
+----------------------
 
-To be able to post to Twitter, Facebook and LinkedIn from within CampaignChain,
-register an App with these three services, by following the steps below:
-
-1. Go to the following pages:
-
-   - Twitter: https://apps.twitter.com
-   - Facebook: https://developers.facebook.com/apps
-   - LinkedIn: https://www.linkedin.com/secure/developer
-
-2. Fill out any required fields.
-
-Once you have registered a new app, you will receive a key and secret that will
-be displayed to you under above pages.
-
-Now, open the sample data file *vendor/campaignchain/distribution-ce/Resources/data/campaignchain/ce.yml*
-and replace the text ``replaceme`` with the app key and secret provided by Twitter,
-Facebook and LinkedIn.
-
-.. code-block:: yaml
-
-    # vendor/campaignchain/distribution-ce/Resources/data/campaignchain/ce.yml
-    \CampaignChain\Security\Authentication\Client\OAuthBundle\Entity\Application:
-        application1:
-            resourceOwner: Twitter
-            # Specify your Twitter Consumer Key and Secret here:
-            key: replaceme
-            secret: replaceme
-        application2:
-            resourceOwner: Facebook
-            # Specify your Facebook App key and secret here:
-            key: replaceme
-            secret: replaceme
-        application3:
-            resourceOwner: LinkedIn
-            # Specify your Facebook App key and secret here:
-            key: replaceme
-            secret: replaceme
-
-Next, execute the below command to load the above sample data into CampaignChain:
+In the root of CampaignChain, execute this command (not as root user!):
 
 .. code-block:: bash
 
-    $ php app/console h4cc_alice_fixtures:load:files --manager=default --type=yaml --seed=42 vendor/campaignchain/distribution-ce/Resources/data/campaignchain/ce.yml
+    $ composer install
 
-4. Configure CampaignChain Scheduler
--------------------------------------
+It will download and install all required packages and modules for the
+CampaignChain base system. Please note that this might take a while.
+
+At the end of the process, you will be asked in the command line to provide some
+configuration parameters. Please make sure you check/provide at least the
+following (default values in brackets):
+
+.. code-block:: bash
+
+    database_driver (pdo_mysql):
+    database_host (127.0.0.1):
+    database_port (null):
+    database_name (campaignchain_ce):
+    database_user (root):
+    database_password (null):
+    java_path (/usr/bin/java):
+
+
+5. Configure CampaignChain Scheduler
+------------------------------------
 
 .. include:: ../include/_configure_scheduler.rst.inc
 
-5. Get Bitly Access Token
---------------------------
-
-.. include:: ../include/_get_bitly_access_token.rst.inc
-
 6. Start Server
----------------------
+---------------
 
 Use PHP's built-in Web server to run CampaignChain.
 
@@ -123,19 +84,15 @@ Use PHP's built-in Web server to run CampaignChain.
 
     $ php app/console server:run
 
-7. Log In to CampaignChain
----------------------------
+7. Installation Wizard
+----------------------
 
-Point your Web browser to http://localhost:8000/ and log in with:
-
-- **username**: admin
-- **password**: test
+Hop over to http://localhost:8000/campaignchain/install.php and follow the instructions.
 
 8. Install Modules
---------------------
+------------------
 
-Visit the module installation screen at http://localhost:8000/system/modules/
-and install all modules.
+You can easily add modules (e.g. to post on Twitter or Facebook) at http://localhost:8000/modules/new/.
 
 Success!
 --------
@@ -148,3 +105,4 @@ To make full use of CampaignChain's capabilities, you could now
 2. :doc:`Learn how to create your first campaign and activity </user/get_started>`
 
 .. _www.campaignchain.com/download: http://www.campaignchain.com/download
+.. _Composer: https://getcomposer.org/download/

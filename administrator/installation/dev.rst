@@ -141,6 +141,8 @@ bundles.
     new CampaignChain\Hook\DurationBundle\CampaignChainHookDurationBundle(),
     new Hpatoio\BitlyBundle\HpatoioBitlyBundle(),
     new Sp\BowerBundle\SpBowerBundle(),
+    new Sonata\CoreBundle\SonataCoreBundle(),
+    new Sonata\BlockBundle\SonataBlockBundle(),
 
 If you have previously specified additional CampaignChain packages in
 *composer.json*, then make sure you also register them here.
@@ -260,6 +262,16 @@ configurations below.
         bundles:
             CampaignChainCoreBundle: ~
 
+    sonata_block:
+        default_contexts: [sonata_page_bundle]
+        blocks:
+            sonata.block.service.text:
+            sonata.block.service.rss:
+            campaignchain.block.activity.upcoming.listgroup:
+            campaignchain.block.milestone.upcoming.listgroup:
+            campaignchain.block.campaign.ongoing.listgroup:
+            campaignchain.block.rss:
+
 4.5 Create *assetic.yml*
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -355,6 +367,7 @@ content.
         dhtmlxgantt_css:
             inputs:
                 - '@CampaignChainCoreBundle/Resources/public/components/gantt/codebase/dhtmlxgantt.css'
+                - '@CampaignChainCoreBundle/Resources/public/css/campaignchain/dhtmlxgantt.css'
         flot_js:
             inputs:
                 - '@CampaignChainCoreBundle/Resources/public/components/flot/jquery.flot.js'
@@ -375,6 +388,10 @@ content.
         fullcalendar_css:
             inputs:
                 - '@CampaignChainCoreBundle/Resources/public/components/fullcalendar/dist/fullcalendar.css'
+                - '@CampaignChainCoreBundle/Resources/public/css/campaignchain/fullcalendar.css'
+        countdown_js:
+            inputs:
+                - '@CampaignChainCoreBundle/Resources/public/components/jquery.countdown/dist/jquery.countdown.js'
       bundles:
         - CampaignChainCoreBundle
         - CampaignChainReportAnalyticsMetricsPerActivityBundle
@@ -430,6 +447,12 @@ the below configuration.
             # URL of FOSUserBundle which need to be available to anonymous users
             - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+            # REST API
+            - { path: ^/api/v1/.*, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+
+            # Installer
+            - { path: ^/install/.*, role: CAMPAIGNCHAIN_INSTALL }
 
             # Secured part of the site
             - { path: ^/, role: ROLE_USER }
