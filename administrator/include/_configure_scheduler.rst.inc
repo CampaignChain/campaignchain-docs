@@ -6,7 +6,7 @@ every minute:
 .. code-block:: bash
 
     $ crontab -e -u <username>
-    */1 * * * * /usr/bin/php /path/to/symfony2/app/console campaignchain:scheduler
+    */1 * * * * /usr/bin/php /path/to/campaignchain/app/console campaignchain:scheduler
 
 On Windows, you could use the `task scheduler or AT command`_ to achieve the same.
 
