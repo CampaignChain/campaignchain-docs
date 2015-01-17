@@ -1,8 +1,8 @@
 Community Edition (CE)
 ======================
 
-The Community Edition has all basic modules included and you can easily add
-more of them inside the application.
+The CampaignChain Community Edition has all basic modules included and you can 
+easily add more of them inside the application.
 
 0. Preparation
 --------------
@@ -42,36 +42,17 @@ Now install Bower through npm:
 
     $ npm install -g bower
 
-4. Download CampaignChain
--------------------------
-
-Download the Community Edition from `www.campaignchain.com/download`_.
-
-Extract the contents of the archive to a directory on your system.
-
-Make sure that PHP has access to all files in the CampaignChain directory. On
-Linux, you could issue this command:
-
-.. code-block:: bash
-
-    $ chown -R www-data:www-data /path/to/campaignchain
-
-... with ``www-data`` being the HTTP server's user and group, respectively.
-
-5. Install Base System
+4. Install Base System
 ----------------------
 
-In the root of CampaignChain, execute Composer to install all the packages
-required by the base system.
+In a folder of your choice, execute Composer to download all files of the
+CampaignChain base system. Please note that this might take a while.
 
 .. code-block:: bash
 
-    $ composer install --no-dev --optimize-autoloader
+    $ composer create-project --stability=dev campaignchain/campaignchain-ce campaignchain dev-1.0.0-alpha.4
 
-It will download and install all required packages and modules for the
-CampaignChain base system. Please note that this might take a while.
-
-6. Configure Base System
+5. Configure Base System
 ------------------------
 
 During the process, Composer will ask in the command line to provide some
@@ -88,7 +69,7 @@ following (default values in brackets):
     database_password (null):
     java_path (/usr/bin/java):
 
-7. Clear Cache and Dump Assets
+6. Clear Cache and Dump Assets
 ------------------------------
 
 Once Composer is done, execute the following commands, still inside the
@@ -102,12 +83,12 @@ CampaignChain root folder:
 
     $ php app/console assetic:dump --env=prod --no-debug
 
-8. Configure CampaignChain Scheduler
+7. Configure CampaignChain Scheduler
 ------------------------------------
 
 .. include:: ../include/_configure_scheduler.rst.inc
 
-9. Start Server
+8. Start Server
 ---------------
 
 Use PHP's built-in Web server to run CampaignChain.
@@ -116,19 +97,21 @@ Use PHP's built-in Web server to run CampaignChain.
 
     $ php app/console server:run
 
-
-By default, the built-in Web server listens for connections on 127.0.0.1. If you're planning to connect to the server over a network, you can specify the network IP address that the server should use. For example, the command below runs the Web server on port 80 of IP address 192.168.1.1:
+By default, the built-in Web server listens for connections on 127.0.0.1. If
+you're planning to connect to the server over a network, you can specify the
+network IP address that the server should use. For example, the command below
+runs the Web server on port 80 of IP address 192.168.1.1:
 
 .. code-block:: bash
 
     $ php app/console server:run 192.168.1.1:80
     
-10. Installation Wizard
+9. Installation Wizard
 -----------------------
 
 Hop over to http://localhost:8000/campaignchain/install.php and follow the instructions.
 
-11. Install Modules
+10. Install Modules
 -------------------
 
 You can easily add modules (e.g. to post on Twitter or Facebook) at http://localhost:8000/modules/new/.
