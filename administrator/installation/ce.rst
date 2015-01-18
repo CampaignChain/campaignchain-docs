@@ -50,7 +50,7 @@ CampaignChain base system. Please note that this might take a while.
 
 .. code-block:: bash
 
-    $ composer create-project --stability=dev campaignchain/campaignchain-ce campaignchain dev-1.0.0-alpha.4
+    $ composer create-project --stability=dev campaignchain/campaignchain-ce campaignchain 1.0.0-alpha.4
 
 5. Configure Base System
 ------------------------
