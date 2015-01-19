@@ -5,6 +5,7 @@ The Developer Book
     :maxdepth: 2
 
     overview
+    dev_mode
     modules
     channels_locations
     activities_operations

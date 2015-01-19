@@ -191,6 +191,7 @@ The typical structure of the *campaignchain.yml* file is as follows:
               - edit: |route identifier|
               - edit_modal: |route identifier|
               - edit_api: |route identifier|
+              - read: |route identifier|
           hooks:
               - |hook-name|: |true|false|
               - |hook-name|: |true|false|
@@ -264,10 +265,11 @@ Parameter *routes*
 Within the *campaignchain.yml* configuration file, CampaignChain recognizes four types
 of Symfony routes.
 
-* new: The route to invoke when creating a new (channel/location/activity/operation)
-* edit: The route to invoke when editing an existing (channel/location/activity/operation)
+* new: The route to invoke when creating a new Channel, Location, Activity, Operation
+* edit: The route to invoke when editing an existing Channel, Location, Activity, Operation
 * edit_modal: The route to invoke for the pop-up view of the 'edit' route
 * edit_api: The route to invoke for the submit action of the 'edit_modal' route
+* read: The route where information can be viewed
 
 Parameter *hooks*
 .................
