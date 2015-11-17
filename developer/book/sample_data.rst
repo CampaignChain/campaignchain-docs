@@ -1,9 +1,8 @@
 Sample Data
 ===========
 
-The sample data leverages the Amariki development environment, i.e. the various
-Amariki test accounts and instances we set up at Twitter, Facebook, MailChimp,
-wordpress.amariki.com and other online channels.
+It is possible to load sample data into CampaignChain, which eases the
+development process.
 
 .. warning::
     * Don't use sample data in production environments, because they might be
@@ -27,6 +26,11 @@ option, these two default sample data packages are already available:
 
 * `amariki/data-test`_
 * `amariki/data-demo`_
+
+The default sample data leverages the
+:doc:`live development environment </developer/book/development_environment>`,
+i.e. the various test accounts and instances CampaignChain, Inc. set up at
+Twitter, Facebook, MailChimp, wordpress.amariki.com and other online channels.
 
 Take a look at above packages if you'd like to create your own sample data. Some
 hints:
@@ -86,6 +90,9 @@ installation.
 #. Log into CampaignChain with user ``admin`` and password ``test`` (unless
    otherwise specified by the package).
 
+In addition to the user interface, you could also load sample data by using the
+command line as described in the `"Commands" section for the Alice Fixtures Bundle`_.
+
 Recovery
 --------
 
@@ -99,3 +106,4 @@ Should the sample data upload not work, you can try two things:
 .. _amariki/data-demo: https://github.com/Amariki/data-demo
 .. _amariki/data-test: https://github.com/Amariki/data-test
 .. _Fixtures: https://github.com/nelmio/alice
+.. _"Commands" section for the Alice Fixtures Bundle: https://github.com/h4cc/AliceFixturesBundle/blob/master/README.md
