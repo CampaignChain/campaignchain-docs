@@ -23,7 +23,8 @@ Development Tools
 -----------------
 
 The navigation bar will display an icon to access various developer tools from
-within the CampaignChain user interface.
+within the CampaignChain user interface, such as
+:doc:`loading sample data </developer/book/sample_data>`.
 
 .. image:: /images/developer/book/load_sample_data.png
     :width: 600px
