@@ -25,7 +25,7 @@ Development Tools
 The navigation bar will display an icon to access various developer tools from
 within the CampaignChain user interface.
 
-.. image:: /images/developer/book/dev_tools.png
+.. image:: /images/developer/book/load_sample_data.png
     :width: 600px
 
 Modules Repositories

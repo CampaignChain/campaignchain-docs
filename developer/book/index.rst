@@ -10,3 +10,5 @@ The Developer Book
     channels_locations
     activities_operations
     cta
+    development_environment
+    sample_data
