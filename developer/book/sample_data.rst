@@ -49,16 +49,16 @@ The aforementioned default sample data packages ship with a template file for
 credentials called ``credentials.yml.tpl``. To create your own file, follow
 these instructions:
 
-# Rename ``credentials.yml.tpl`` to ``credentials.yml``.
-# Register your CampaignChain instance as an app for the various Channels
-listed as ``resourceOwner`` in ``credentials.yml``, such as Twitter and Facebook.
-If you've never done that, go to http://hybridauth.sourceforge.net/userguide.html
-and click on a provider (e.g. Twitter). On the respective page, there's a section
-called "Registering application". Proceed as described there.
-# Now connect a new Location in CampaignChain (e.g. a Twitter stream). When
-done, look up the respective tokens in the database table
-``campaignchain_security_authentication_client_oauth_token`` and put them into
-``credentials.yml``.
+#. Rename ``credentials.yml.tpl`` to ``credentials.yml``.
+#. Register your CampaignChain instance as an app for the various Channels
+   listed as ``resourceOwner`` in ``credentials.yml``, such as Twitter and Facebook.
+   If you've never done that, go to http://hybridauth.sourceforge.net/userguide.html
+   and click on a provider (e.g. Twitter). On the respective page, there's a section
+   called "Registering application". Proceed as described there.
+#. Now connect a new Location in CampaignChain (e.g. a Twitter stream). When
+   done, look up the respective tokens in the database table
+   ``campaignchain_security_authentication_client_oauth_token`` and put them into
+   ``credentials.yml``.
 
 .. note::
     If you would like to retrieve a ``credentials.yml`` file for the default
@@ -76,15 +76,15 @@ installation.
 .. image:: /images/developer/book/load_sample_data.png
     :width: 600px
 
-# Make sure you have a working ``credentials.yml`` file - see above.
-# Load the page http://example.com/development/sample-data of your CampaignChain
-  installation.
-# There, pick the package of choice in the field "Data file" and select
-  ``credentials.yml`` as the Include File. Activate the checkbox "Drop tables?"
-  to start with a clean slate.
-# Click "Upload" and good luck :)
-# Log into CampaignChain with user ``admin`` and password ``test`` (unless
-  otherwise specified by the package).
+#. Make sure you have a working ``credentials.yml`` file - see above.
+#. Load the page http://example.com/development/sample-data of your CampaignChain
+   installation.
+#. There, pick the package of choice in the field "Data file" and select
+   ``credentials.yml`` as the Include File. Activate the checkbox "Drop tables?"
+   to start with a clean slate.
+#. Click "Upload" and good luck :)
+#. Log into CampaignChain with user ``admin`` and password ``test`` (unless
+   otherwise specified by the package).
 
 Recovery
 --------
