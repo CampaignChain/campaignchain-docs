@@ -52,6 +52,18 @@ CampaignChain.
     file that works out-of-the-box with above data packages and the development
     environment.
 
+Email
+-----
+
+We have test email accounts for above test online channels. For example, as an
+account email to receive notifications from Twitter or a recipient email to
+send MailChimp newsletters to.
+
+.. note::
+    Please contact partner@campaignchain.com to apply for access to the email
+    inbox where we collect all incoming test emails..
+
+
 .. _Composer: https://getcomposer.org
 .. _amariki/data-demo: https://github.com/Amariki/data-demo
 .. _amariki/data-test: https://github.com/Amariki/data-test
