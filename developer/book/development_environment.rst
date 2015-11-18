@@ -52,8 +52,8 @@ CampaignChain.
     file that works out-of-the-box with above data packages and the development
     environment.
 
-Email
------
+Test Emails
+-----------
 
 We have test email accounts for above test online channels. For example, as an
 account email to receive notifications from Twitter or a recipient email to
@@ -61,7 +61,8 @@ send MailChimp newsletters to.
 
 .. note::
     Please contact partner@campaignchain.com to apply for access to the email
-    inbox where we collect all incoming test emails..
+    inbox where we collect all incoming test emails and to retrieve a list of
+    available test emails.
 
 
 .. _Composer: https://getcomposer.org
