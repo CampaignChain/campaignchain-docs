@@ -33,8 +33,9 @@ by CampaignChain to your new Channel. You will need this ID in the next step.
 2. Include Tracking Code
 ------------------------
 
-First, include a JavaScript file provided by CampaignChain in the HTML of the
-online channel you plan to include.
+2.1 Directly within HMTL Source Code
+
+If you own the channel you plan to include and you have full control to directly manipulate the HTML source, you can include a JavaScript file provided by CampaignChain an all of you pages.
 
 The file is named *campaignchain_tracking.js* and once you have it included, it
 will take care of sending all the information for tracking CTAs to your
@@ -43,6 +44,14 @@ CampaignChain instance.
 Include the file by adding the code below to your channel, ideally right before 
 the closing body element (i.e. *</body>* element) and make sure that it appears 
 on all pages of the Channel.
+
+2.2 Use Google Tag Manager
+
+Rather than waiting months for site code updates of channels you not own or that are not controlled by you, Google Tag Manager (GTM) lets you launch new tags with just a few clicks. The GTM provides container snippet, a small piece of JavaScript and non-JavaScript code that you paste into your pages once. Google Tag Manager than allows you to create a new 'Custom HTML Tag' at the GTM web interface *https://tagmanager.google.com*. Paste the CampaignChain tracking code into the 'HMTL' section. Make sure the event is fired on all pages. The last step is publish your new tag in GTM. 
+
+2.3. The CampaignChain Tracking Code
+
+Independently from placing the tracking code diretly to the HTML source or using GTM, here is how the JavaScript looks like:
 
 .. code-block:: html
 
