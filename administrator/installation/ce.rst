@@ -114,6 +114,12 @@ runs the Web server on port 80 of IP address 192.168.1.1:
 Hop over to http://localhost:8000/campaignchain/install.php and follow the
 instructions.
 
+10. Sample Data
+---------------
+
+If you'd like to load sample data to play with CampaignChain, read
+:doc:`how to load the fixtures <../../developer/book/sample_data>`.
+
 Success!
 --------
 
