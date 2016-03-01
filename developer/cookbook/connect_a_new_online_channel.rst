@@ -12,7 +12,7 @@ XING activity stream and post updates to it.
 Assumptions and Prerequisites
 -----------------------------
 * You have a `Symfony environment`_ meeting all the system requirements.
-* You have a working :doc:`CampaignChain development installation`_.
+* You have a working `CampaignChain development installation`_.
 * You have a good understanding of the OAuth authentication process.
 * You have a good understanding of the XING REST API. 
   `Learn more about the API`_.
@@ -26,14 +26,14 @@ Overview
 To connect a new online channel through CampaignChain, here are the steps 
 you will follow:
 
-1. `Generate Channel and Location bundles`_
+1. `Generate Channel and Location modules`_
 2. `Create Channel and Location controllers and views`_
 3. `Add a channel icon`_
 
 To enable activities and operations for the new channel, here are the steps 
 you will follow:
 
-1. `Generate Operation and Activity bundles`_
+1. `Generate Operation and Activity modules`_
 2. `Understand the API exposed by the channel you're connecting`_
 3. `Create entities and entity managers for your Activities and Operations`_
 4. `Create input forms and connect them to your entities`_
@@ -43,20 +43,20 @@ you will follow:
 Connect Channels and Locations
 ------------------------------
 
-.. _Generate Channel and Location bundles:
+.. _Generate Channel and Location modules:
 
-1. Generate Channel and Location bundles
+1. Generate Channel and Location modules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The first step is to create Channel and Location bundles for the XING channel. 
+The first step is to create Channel and Location modules for the XING channel. 
 In this case, we'll assume the organization name is Acme, and use this 
 organization name for the module namespaces. 
 
-The easiest way to generate these bundles is with the CampaignChain module 
-generator (included by default).  The commands below walk you through the 
-process of generating a new Channel bundle. Note that you're safe using 
-the defaults for all interactive prompts except for certain items shown 
-below.
+The easiest way to generate these modules is with the CampaignChain module 
+generator (included when you install with Composer and the option *--dev*).  
+The commands below walk you through the process of generating a new Channel 
+module. Note that you're safe using the defaults for all interactive 
+prompts except for certain items shown below.
 
 .. code-block:: bash
 
@@ -86,13 +86,19 @@ Channel, remembering to specify the "Module type" as "Location" this time. The n
 bundle will be created at *your-project/src/Acme/Location/XingBundle* with 
 the name *AcmeLocationXingBundle*.
 
+.. note::
+   Most of the code you see in the next few sections is automatically generated 
+   for you by the CampaignChain module generator. You only need to copy and 
+   paste the parts that are specific to the channel you're trying to 
+   connect (in this example, XING).
+
 .. _Create Channel and Location controllers and views:
    
 2. Add Controllers and Views
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Channel module takes care of creating a new Location and handling 
-authentication between CampaignChain and the channel. The Channel bundle's 
+authentication between CampaignChain and the channel. The Channel module's 
 auto-generated *campaignchain.yml* file specifies the routes and hooks 
 used by its modules. Here's what the file looks like:
 
@@ -110,7 +116,7 @@ used by its modules. Here's what the file looks like:
                 default:
                 
 Notice the name of the Symfony route for creating a new channel. The 
-corresponding URL and controller is defined in the bundle's auto-generated 
+corresponding URL and controller is defined in the module's auto-generated 
 *routing.yml* file, as shown below:
 
 .. code-block:: yaml
@@ -602,7 +608,7 @@ image should be saved to *your-project/src/Acme/Location/XingBundle/Resources/pu
 Other image sizes should be saved similarly. The name of the image ('xing') 
 should match the descriptive string used in the module name ('acme-xing')
 
-At this point, your Channel and Location bundles are complete.
+At this point, your Channel and Location modules are complete.
 
 Define Activities and Operations
 --------------------------------
@@ -613,19 +619,19 @@ that only a single Activity is required: sharing news on the user's XING
 news stream. This will be accomplished using XING's REST API, which makes 
 it possible to add posts to a user's news stream.
 
-.. _Generate Operation and Activity bundles:
+.. _Generate Operation and Activity modules:
 
-1. Generate Operation and Activity bundles
+1. Generate Operation and Activity modules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The first step here is again to create bundles for the Activity and Operation. 
+The first step here is again to create modules for the Activity and Operation. 
 Remember that every Activity must have at least one Operation. In this 
 case, since only one Operation is needed, the Activity is equal to the Operation.
 This is important to know in advance, as it's critical to proper functioning 
 and it's also part of the information requested by the module generator.
 
-Since Activity and Operation bundles are linked, it's generally recommended 
-that you create the Operation bundle first and the Activity bundle later. 
+Since Activity and Operation modules are linked, it's generally recommended 
+that you create the Operation module first and the Activity module later. 
 Use the CampaignChain module generator as before, and be aware that you 
 will be asked for additional information for Activity and Operation modules, 
 as shown below:
@@ -650,7 +656,8 @@ as shown below:
 The new bundle will be created at *your-project/src/Acme/Operation/XingBundle* 
 with the name *AcmeOperationXingBundle*.  
 
-Next, create the corresponding Activity bundle, as below:
+Next, create the corresponding Activity module, as below. Note that the module 
+name suffix is left empty on purpose for this tutorial.
 
 .. code-block:: bash
 
@@ -673,19 +680,25 @@ Next, create the corresponding Activity bundle, as below:
   Package description: XING module for CampaignChain
   Package website URL: http://acme.example.com
 
-Note that the module and module name suffix used in the Operation bundle 
-should be correctly referenced in the Activity bundle's Operation parameter 
+Note that the module and module name suffix used in the Operation module 
+should be correctly referenced in the Activity module's Operation parameter 
 name.  
   
 The new bundle will be created at *your-project/src/AcmeActivity/XingBundle* 
 with the name *AcmeActivityXingBundle*.
+
+.. note::
+   Most of the code you see in the next few sections is automatically generated 
+   for you by the CampaignChain module generator. You only need to copy and 
+   paste the parts that are specific to the channel you're trying to 
+   connect (in this example, XING).
 
 .. _Understand the API exposed by the channel you're connecting:
 
 2. Understand the XING API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once the bundles are created, let's look more closely at the message posting 
+Once the modules are created, let's look more closely at the message posting 
 operation to be implemented. Review the image below, which displays a typical 
 item in a XING user's news stream.
 
@@ -1274,7 +1287,7 @@ four routes:
 * A route for the submit action of the pop-up/lightbox view in the 
   campaign timeline ('edit_api')
 
-These routes are automatically generated for you in the Activity bundle's 
+These routes are automatically generated for you in the Activity module's 
 *campaignchain.yml* file, as shown below:
 
 .. code-block:: yaml
@@ -1725,7 +1738,7 @@ if set to "now", retrieves the job via the service manager and invokes its
 Conclusion
 ------------
 
-At this point, your bundles are all complete. Once you add your modules 
+At this point, your modules are all complete. Once you add your modules 
 to CampaignChain through the module installer, or reset your system to 
 automatically register them, you should be able to connect to a new XING 
 location and begin posting news to it. Try it out for yourself and see 
@@ -1733,7 +1746,7 @@ how easy it is!
 
 
 .. _CampaignChain live development environment: /developer/book/development_environment.html
-.. _CampaignChain development installation: /administrator/installation/dev
+.. _CampaignChain development installation: /administrator/installation/dev.html
 .. _XING: http://www.xing.com
 .. _Symfony environment: http://symfony.com/doc/current/book/installation.html
 .. _Learn more about the API: https://dev.xing.com/docs
