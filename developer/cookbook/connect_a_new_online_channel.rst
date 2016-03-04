@@ -164,18 +164,19 @@ To begin, define this controller and action:
       {
           $oauthApp = $this->get('campaignchain.security.authentication.client.oauth.application');
           $application = $oauthApp->getApplication(self::RESOURCE_OWNER);
-          if(!$application){
+
+          if (!$application) {
+
               return $oauthApp->newApplicationTpl(self::RESOURCE_OWNER, $this->applicationInfo);
           }
-          else {
-              return $this->render(
-                  'AcmeChannelXingBundle:Create:index.html.twig',
-                  array(
-                      'page_title' => 'Connect with Xing',
-                      'app_id' => $application->getKey(),
-                  )
-              );
-          }
+
+          return $this->render(
+              'AcmeChannelXingBundle:Create:index.html.twig',
+              array(
+                  'page_title' => 'Connect with Xing',
+                  'app_id' => $application->getKey(),
+              )
+          );
       }
       
 The *createAction()* method wraps CampaignChain's OAuth module and renders 
@@ -235,63 +236,86 @@ will need. The code below illustrates the typical process:
   class XingController extends Controller
   {
 
-    public function loginAction(Request $request){
+    public function loginAction(Request $request)
+    {
         $oauth = $this->get('campaignchain.security.authentication.client.oauth.authentication');
         $status = $oauth->authenticate(self::RESOURCE_OWNER, $this->applicationInfo);
         $profile = $oauth->getProfile();
-        if($status){
-            try {
-                $repository = $this->getDoctrine()->getManager();
-                $repository->getConnection()->beginTransaction();
-                $wizard = $this->get('campaignchain.core.channel.wizard');
-                $wizard->setName($profile->displayName);
-                // Get the location module.
-                $locationService = $this->get('campaignchain.core.location');
-                $locationModule = $locationService->getLocationModule(self::LOCATION_BUNDLE, self::LOCATION_MODULE);
-                $location = new Location();
-                $location->setIdentifier($profile->identifier);
-                $location->setName($profile->displayName);
-                $location->setImage($profile->photoURL);
-                $location->setLocationModule($locationModule);
-                $wizard->addLocation($location->getIdentifier(), $location);
-                $channel = $wizard->persist();
-                $wizard->end();
-                $oauth->setLocation($channel->getLocations()[0]);
-                $user = new XingUser();
-                $user->setLocation($channel->getLocations()[0]);
-                $user->setIdentifier($profile->identifier);
-                $user->setDisplayName($profile->displayName);
-                $user->setFirstName($profile->firstName);
-                $user->setLastName($profile->lastName);
-                if (isset($profile->emailVerified)) {
-                  $user->setEmail($profile->emailVerified);
-                } else {
-                  $user->setEmail($profile->email);                
-                }
-                $user->setProfileImageUrl($profile->photoURL);
-                $repository->persist($user);
-                $repository->flush();
-                $repository->getConnection()->commit();
-                $this->get('session')->getFlashBag()->add(
-                    'success',
-                    'The Xing location <a href="#">'.$profile->displayName.'</a> was connected successfully.'
-                );
-            } catch (\Exception $e) {
-                $repository->getConnection()->rollback();
-                throw $e;
-            }
-        } else {
-            $this->get('session')->getFlashBag()->add(
+
+        if(!$status){
+            $this->addFlash(
                 'warning',
                 'A location has already been connected for this Xing account.'
             );
+
+            return $this->render(
+                'AcmeChannelXingBundle:Create:login.html.twig',
+                array(
+                    'redirect' => $this->generateUrl('campaignchain_core_channel')
+                )
+            );
         }
+
+        $repository = $this->getDoctrine()->getManager();
+        $repository->getConnection()->beginTransaction();
+
+        $wizard = $this->get('campaignchain.core.channel.wizard');
+        $wizard->setName($profile->displayName);
+
+        // Get the location module.
+        $locationService = $this->get('campaignchain.core.location');
+        $locationModule = $locationService->getLocationModule(self::LOCATION_BUNDLE, self::LOCATION_MODULE);
+
+        $location = new Location();
+        $location->setIdentifier($profile->identifier);
+        $location->setName($profile->displayName);
+        $location->setImage($profile->photoURL);
+        $location->setLocationModule($locationModule);
+
+        $wizard->addLocation($location->getIdentifier(), $location);
+
+        try {
+            $channel = $wizard->persist();
+            $wizard->end();
+
+            $oauth->setLocation($channel->getLocations()->first());
+
+            $user = new XingUser();
+            $user->setLocation($channel->getLocations()->first());
+            $user->setIdentifier($profile->identifier);
+            $user->setDisplayName($profile->displayName);
+            $user->setFirstName($profile->firstName);
+            $user->setLastName($profile->lastName);
+            $user->setProfileImageUrl($profile->photoURL);
+
+            if (isset($profile->emailVerified)) {
+              $user->setEmail($profile->emailVerified);
+            } else {
+              $user->setEmail($profile->email);
+            }
+
+            $repository->persist($user);
+            $repository->flush();
+
+            $repository->getConnection()->commit();
+
+        } catch (\Exception $e) {
+            $repository->getConnection()->rollback();
+            throw $e;
+        }
+
+        $this-addFlash(
+            'success',
+            'The Xing location <a href="#">'.$profile->displayName.'</a> was connected successfully.'
+        );
+
         return $this->render(
             'AcmeChannelXingBundle:Create:login.html.twig',
             array(
                 'redirect' => $this->generateUrl('campaignchain_core_channel')
             )
         );
+
     }
   }
  
@@ -889,6 +913,9 @@ of the entity by its identifier. Here's the code, which should be saved to
 
   class XingMessage implements OperationServiceInterface
   {
+      /**
+       * @var EntityManager
+       */
       protected $em;
       
       public function __construct(EntityManager $em)
@@ -896,14 +923,18 @@ of the entity by its identifier. Here's the code, which should be saved to
           $this->em = $em;
       }
       
-      public function getMessageByOperation($id){
-          $message = $this->em->getRepository('AcmeOperationXingBundle:XingMessage')
-              ->findOneByOperation($id);
+      public function getMessageByOperation($id)
+      {
+          $message = $this->em
+            ->getRepository('AcmeOperationXingBundle:XingMessage')
+            ->findOneByOperation($id);
+
           if (!$message) {
               throw new \Exception(
                   'No message found by operation id '.$id
               );
           }
+
           return $message;
       }
       
@@ -912,13 +943,16 @@ of the entity by its identifier. Here's the code, which should be saved to
           $message = $this->getMessageByOperation($oldOperation);
           $clonedMessage = clone $message;
           $clonedMessage->setOperation($newOperation);
+
           $this->em->persist($clonedMessage);
           $this->em->flush();
       }
       
-      public function removeOperation($id){
+      public function removeOperation($id)
+      {
           try {
               $operation = $this->getMessageByOperation($id);
+
               $this->em->remove($operation);
               $this->em->flush();
           } catch (\Exception $e) {
@@ -972,36 +1006,37 @@ illustrates how to do this.
 
   use CampaignChain\CoreBundle\Form\Type\OperationType;
   use Symfony\Component\Form\FormBuilderInterface;
-  use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+  use Symfony\Component\OptionsResolver\OptionsResolver;
+  use Symfony\Component\Form\Extension\Core\Type\TextType;
 
   class XingMessageOperationType extends OperationType
   {
       public function buildForm(FormBuilderInterface $builder, array $options)
       {
           $builder
-              ->add('message', 'text', array(
+              ->add('message', TextType::class, [
                   'property_path' => 'message',
                   'label' => 'Message',
-                  'attr' => array(
+                  'attr' => [
                       'placeholder' => 'Add message...',
                       'max_length' => 420
-                  )
-              ));
+                  ]
+              ]);
       }
 
-      public function setDefaultOptions(OptionsResolverInterface $resolver)
+      public function configureOptions(OptionsResolver $resolver)
       {
-          $defaults = array(
+          $defaults = [
               'data_class' => 'Acme\Operation\XingBundle\Entity\XingMessage',
-          );
+          ];
 
-          if($this->content){
+          if ($this->content) {
               $defaults['data'] = $this->content;
           }
           $resolver->setDefaults($defaults);
       }
 
-      public function getName()
+      public function getBlockPrefix()
       {
           return 'acme_operation_xing_message';
       }
@@ -1047,35 +1082,53 @@ object to it, at the location *your-project/src/Acme/Channel/XingBundle/REST/Xin
   use Symfony\Component\HttpFoundation\Session\Session;
   use Guzzle\Http\Client;
   use Guzzle\Plugin\Oauth\OauthPlugin;
+  use Guzzle\Http\Exception\ClientErrorResponseException;
+  use Guzzle\Http\Exception\ServerErrorResponseException;
+  use Guzzle\Http\Exception\BadResponseException;
+  use CampaignChain\Security\Authentication\Client\OAuthBundle\EntityService\ApplicationService;
+  use CampaignChain\Security\Authentication\Client\OAuthBundle\EntityService\TokenService;
 
   class XingClient
   {
       const RESOURCE_OWNER = 'Xing';
       const BASE_URL   = 'https://api.xing.com/v1';
 
-      protected $container;
-      
-      protected $client;
-      
-      public function setContainer($container)
+      /**
+       * @var ApplicationService
+       */
+      protected $applicationService;
+
+      /**
+       * @var TokenService
+       */
+      protected $tokenService;
+
+      /**
+        * XingClient constructor.
+        * @param ApplicationService $applicationService
+        * @param TokenService $tokenService
+        */
+      public function __construct(ApplicationService $applicationService, TokenService $tokenService)
       {
-          $this->container = $container;
+          $this->applicationService = $applicationService;
+          $this->tokenService = $tokenService;
       }
-      
-      public function connectByActivity($activity){
+
+      public function connectByActivity($activity)
+      {
           return $this->connectByLocation($activity->getLocation());
       }
       
-      public function connectByLocation($location){
-          $oauthApp = $this->container->get('campaignchain.security.authentication.client.oauth.application');
-          $application = $oauthApp->getApplication(self::RESOURCE_OWNER);
-          
-          $oauthToken = $this->container->get('campaignchain.security.authentication.client.oauth.token');
-          $token = $oauthToken->getToken($location);
+      public function connectByLocation($location)
+      {
+          $application = $this->applicationService->getApplication(self::RESOURCE_OWNER);
+          $token = $this->tokenService->getToken($location);
+
           return $this->connect($application->getKey(), $application->getSecret(), $token->getAccessToken(), $token->getTokenSecret());
       }
 
-      public function connect($appKey, $appSecret, $accessToken, $tokenSecret){
+      public function connect($appKey, $appSecret, $accessToken, $tokenSecret)
+      {
           try {
               $client = new Client(self::BASE_URL.'/');
               $oauth  = new OauthPlugin(array(
@@ -1084,25 +1137,22 @@ object to it, at the location *your-project/src/Acme/Channel/XingBundle/REST/Xin
                   'token'           => $accessToken,
                   'token_secret'    => $tokenSecret,
               ));
+
               return $client->addSubscriber($oauth);
-          }
-          catch (ClientErrorResponseException $e) {
+          } catch (ClientErrorResponseException $e) {
               $request = $e->getRequest();
               $response = $e->getResponse();
               print_r($request);
               print_r($response);
-          }
-          catch (ServerErrorResponseException $e) {
+          } catch (ServerErrorResponseException $e) {
               $request = $e->getRequest();
               $response = $e->getResponse();
               print_r($response);
-          }
-          catch (BadResponseException $e) {
+          } catch (BadResponseException $e) {
               $request = $e->getRequest();
               $response = $e->getResponse();
               print_r($response);
-          }
-          catch(Exception $e){
+          } catch(Exception $e){
             print_r($e->getMessage());
           }  
       }
@@ -1127,8 +1177,7 @@ with the following information.
   services:
       acme.channel.xing.rest.client:
           class: Acme\Channel\XingBundle\REST\XingClient
-          calls:
-              - [setContainer, ["@service_container"]]
+          arguments: ["@campaignchain.security.authentication.client.oauth.application", "@campaignchain.security.authentication.client.oauth.token"]
 
 You'll notice that this client object merely takes care of connecting and 
 authenticating against the XING API. It doesn't actually take care of 
@@ -1150,38 +1199,47 @@ your Operation module at *your-project/src/Acme/Operation/XingBundle/Job/XingMes
   use CampaignChain\CoreBundle\Job\JobActionInterface;
   use Symfony\Component\HttpFoundation\Response;
   use CampaignChain\CoreBundle\EntityService\CTAService;
+  use CampaignChain\Security\Authentication\Client\OAuthBundle\EntityService\TokenService;
 
   class XingMessage implements JobActionInterface
   {
+      /**
+       * @var EntityManager
+       */
       protected $em;
-      protected $container;
 
-      protected $message;
-      protected $link;
+      /**
+       * @var TokenService
+       */
+      protected $tokenService;
 
-      public function __construct(EntityManager $em, $container)
+      /**
+       * @var XingClient
+       */
+      protected $xingClient;
+
+      public function __construct(EntityManager $em, TokenService $tokenService, XingClient $xingClient)
       {
           $this->em = $em;
-          $this->container = $container;
+          $this->tokenService = $tokenService;
+          $this->xingClient = $xingClient;
       }
 
       public function execute($operationId)
       {
           $message = $this->em
-                          ->getRepository('AcmeOperationXingBundle:XingMessage')
-                          ->findOneByOperation($operationId);
+              ->getRepository('AcmeOperationXingBundle:XingMessage')
+              ->findOneByOperation($operationId);
 
           if (!$message) {
               throw new \Exception('No message found for an operation with ID: '.$operationId);
           }
 
-          $oauthToken = $this->container->get('campaignchain.security.authentication.client.oauth.token');
           $activity = $message->getOperation()->getActivity();
           $identifier = $activity->getLocation()->getIdentifier();
-          $token = $oauthToken->getToken($activity->getLocation());
+          $token = $this->tokenService->getToken($activity->getLocation());
           
-          $client = $this->container->get('acme.channel.xing.rest.client');
-          $connection = $client->connectByActivity($message->getOperation()->getActivity());
+          $connection = $this->xingClient->connectByActivity($message->getOperation()->getActivity());
           
           $request = $connection->post('users/' . $identifier . '/status_message', array(), array('id' => $identifier, 'message' => $message->getMessage()));
           $response = $request->send();
@@ -1203,11 +1261,6 @@ your Operation module at *your-project/src/Acme/Operation/XingBundle/Job/XingMes
 
           return self::STATUS_OK;
       }
-
-      public function getMessage(){
-          return $this->message;
-      }
-
   }
   
 A Job object is always part of an Operation module and it is called as necessary 
@@ -1544,6 +1597,7 @@ Here's the code for the XingHandler:
       public function readAction(Operation $operation)
       {
           $message = $this->contentService->getMessageByOperation($operation);
+
           return $this->templating->renderResponse(
               'CampaignChainOperationXingBundle::read_message.html.twig',
               array(
@@ -1690,16 +1744,18 @@ Here's the code for the XingHandler:
       
       private function publishNow(Operation $operation, Form $form)
       {
-         if ($form->get('campaignchain_hook_campaignchain_due')->has('execution_choice') && $form->get('campaignchain_hook_campaignchain_due')->get('execution_choice')->getData() == 'now') {
-              $this->job->execute($operation->getId());
-              $content = $this->contentService->getMessageByOperation($operation);
-              $this->session->getFlashBag()->add(
-                  'success',
-                  'The message was published.'
-              );
-              return true;
+          if (!$form->get('campaignchain_hook_campaignchain_due')->has('execution_choice') || $form->get('campaignchain_hook_campaignchain_due')->get('execution_choice')->getData() != 'now') {
+              return false;
           }
-          return false;    
+
+          $this->job->execute($operation->getId());
+          $content = $this->contentService->getMessageByOperation($operation);
+          $this->session->getFlashBag()->add(
+              'success',
+              'The message was published.'
+          );
+
+          return true;
       }
   }
   
