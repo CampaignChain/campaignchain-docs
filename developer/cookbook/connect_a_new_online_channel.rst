@@ -304,7 +304,7 @@ will need. The code below illustrates the typical process:
             throw $e;
         }
 
-        $this-addFlash(
+        $this->addFlash(
             'success',
             'The Xing location <a href="#">'.$profile->displayName.'</a> was connected successfully.'
         );
