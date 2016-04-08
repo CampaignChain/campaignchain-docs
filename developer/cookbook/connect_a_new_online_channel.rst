@@ -19,7 +19,7 @@ Assumptions and Prerequisites
 * You have an application registered with XING and have obtained the 
   necessary keys. `Register your application`_.
 * You have an account registered with XING, or you have access to the 
-`CampaignChain live development environment`_ (optional, for testing).
+  `CampaignChain live development environment`_ (optional, for testing).
 
 Overview
 --------
@@ -37,8 +37,9 @@ you will follow:
 2. `Understand the API exposed by the channel you're connecting`_
 3. `Create entities and entity managers for your Activities and Operations`_
 4. `Create input forms and connect them to your entities`_
-5. `Create an API client and job processor`_
+5. `Create an API client and operation processor`_
 6. `Define an Activity handler`_
+7. `Collect metrics and create a report processor`_
 
 Connect Channels and Locations
 ------------------------------
@@ -812,6 +813,11 @@ update it to reflect the information you wish to save for a message, as below:
       protected $url;
       
       /**
+       * @ORM\Column(type="text", length=255, nullable=true)
+       */
+      protected $messageId;      
+      
+      /**
        * Get id
        *
        * @return integer 
@@ -889,11 +895,34 @@ update it to reflect the information you wish to save for a message, as below:
       {
           return $this->url;
       }    
+      
+      /**
+       * Set message id
+       *
+       * @param string $messageId
+       * @return XingMessage
+       */
+      public function setMessageId($messageId)
+      {
+          $this->messageId = $messageId;
+
+          return $this;
+      }
+
+      /**
+       * Get message id
+       *
+       * @return string 
+       */
+      public function getMessageId()
+      {
+          return $this->messageId;
+      }      
   }
 
 As you can see, the entity includes properties corresponding to those expected 
-by the XING API (in this case, only the message text), as well as some 
-properties needed by CampaignChain.
+by the XING API (in this case, the message text and the unique message 
+identifier on XING), as well as some properties needed by CampaignChain.
 
 You will also need an entity service manager, which will retrieve an instance 
 of the entity by its identifier. Here's the code, which should be saved to 
@@ -1051,14 +1080,14 @@ Here's an example of what the form looks like when rendered:
 
 .. image:: /images/developer/cookbook/activity-create.png
 
-.. _Create an API client and job processor:
+.. _Create an API client and operation processor:
 
-5. Create an API Client and Job Processor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+5. Create an API Client and Operation Processor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In the previous steps, you enabled the user to enter details of a new XING 
 message into a form and have that data saved to the CampaignChain database. 
-The next step is to build a job processor, which can check periodically for 
+The next step is to build an operation processor, which can check periodically for 
 scheduled messages, authenticate against the XING API as needed, and post 
 those messages to the user's stream.
 
@@ -1244,9 +1273,10 @@ your Operation module at *your-project/src/Acme/Operation/XingBundle/Job/XingMes
           $request = $connection->post('users/' . $identifier . '/status_message', array(), array('id' => $identifier, 'message' => $message->getMessage()));
           $response = $request->send();
           $messageEndpoint = $response->getHeader('location');
-          $messageId = strtok(basename($messageEndpoint), '_');
-          $messageUrl = 'https://www.xing.com/feedy/stories/' . $messageId;
+          $messageId = basename($messageEndpoint);
+          $messageUrl = 'https://www.xing.com/feedy/stories/' . strtok($messageId, '_');
           $message->setUrl($messageUrl);
+          $message->setMessageId($messageId);
 
           $message->getOperation()->setStatus(Action::STATUS_CLOSED);
           $location = $message->getOperation()->getLocations()[0];
@@ -1270,7 +1300,7 @@ which mandates an *execute()* method which is called when the job is executed.
 If you look into the *execute()* method above, you'll see that it begins by 
 retrieving the required message from the CampaignChain database (using the 
 message identifier). It then invokes the XingClient created earlier from 
-the service manage and uses the client to authenticate against the XING API.
+the service manager and uses the client to authenticate against the XING API.
 
 The next step is to use the client's inherited *post()* method to transmit 
 a POST request to the API endpoint https://api.xing.com/v1/users/ID/status_message 
@@ -1279,6 +1309,11 @@ the response will contain a Location header containing the URL to the posted
 message. It's now easy enough to extract the message identifier from this 
 and create a new Location record pointing to it in the CampaignChain database. 
 This Location can later be used in CampaignChain's Call-to-Action tracking. 
+
+At the same time, a new XingMessage record is also created to store the 
+message URL and unique message identifier on XING. This message identifier 
+is particularly important, as it will later be used to collect statistics 
+about the number of likes and comments received on the message.
 
 The final steps are to update the status of the operation in the CampaignChain 
 database and present a success message to the user.
@@ -1765,32 +1800,195 @@ find an explanation in the comments above each method, but let's quickly
 look through the key methods here:
 
 * The constructor injects the key dependencies needed for the handler, 
-including the entity service manager and the job processor.
+  including the entity service manager and the job processor.
 
 * The *getContent()* method returns an existing XingMessage entity, for 
-use in an edit or display view.
+  use in an edit or display view.
 
 * The *processContent()* method processes the input submitted in the Operation 
-form and creates a new XingMessage entity. It is also invoked to process 
-modifications to an existing XingMessage entity.
+  form and creates a new XingMessage entity. It is also invoked to process 
+  modifications to an existing XingMessage entity.
 
 * The *readAction()* method retrieves an existing XingMessage entity and 
-sets template variables from its properties for display.
+  sets template variables from its properties for display.
 
 * The *postPersistNewEvent()* and *postPersistEditEvent()* methods are 
-called after a XingMessage entity is saved to the database. In this example, 
-both methods invoke the *publishNow()* method. 
+  called after a XingMessage entity is saved to the database. In this example, 
+  both methods invoke the *publishNow()* method. 
 
 * The *publishNow()* method checks when the Activity is scheduled for and, 
-if set to "now", retrieves the job via the service manager and invokes its 
-*execute()* method to post the message to the XING API.
+  if set to "now", retrieves the job via the service manager and invokes its 
+  *execute()* method to post the message to the XING API.
 
 .. note::
    The Activity and Operation modules use CampaignChain's base views, and 
    it is not necessary to create new views unless you specifically wish 
    to override the base views.
 
-   
+.. _Collect metrics and create a report processor:
+
+7. Collect Metrics and Create a Report Processor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Most online channels expose an API to collect metrics on posted data, such 
+as the number of favorites, retweets, likes or comments. One of CampaignChain's 
+key features is the ability to aggregate this data and generate reports to 
+help end-users evaluate the success of a campaign.
+
+To do this, it is necessary to define a second Job, this one responsible 
+for periodically connecting to the service's API, collecting metrics and 
+saving them to the CampaignChain database. These metrics are then used to 
+generate reports through the CampaignChain interface.
+
+The CampaignChain module generator will have got you started by creating a 
+stub Job for this purpose within your Operation module, at *your-project/src/Acme/Operation/XingBundle/Job/XingMessageReport.php*. 
+You'll notice that this stub file already includes variables for the two 
+metrics, likes and comments, which you specified in Step 1 when generating 
+the Operation module.
+
+Update this file with the following code:
+
+::
+
+  <?php
+
+  // src/Acme/Operation/XingBundle/Job/XingMessageReport.php
+
+  namespace Acme\Operation\XingBundle\Job;
+
+  use CampaignChain\CoreBundle\Entity\SchedulerReportOperation;
+  use CampaignChain\CoreBundle\Job\JobReportInterface;
+  use Doctrine\ORM\EntityManager;
+
+  class XingMessageReport implements JobReportInterface
+  {
+      const OPERATION_BUNDLE_NAME = 'acme/operation-xing';
+      const METRIC_LIKES    = 'Likes';
+      const METRIC_COMMENTS = 'Comments';
+
+      protected $em;
+      protected $container;
+      protected $message;
+      protected $operation;
+
+      public function __construct(EntityManager $em, $container)
+      {
+          $this->em = $em;
+          $this->container = $container;
+      }
+
+      public function getMessage(){
+          return $this->message;
+      }
+      
+      public function schedule($operation, $facts = null)
+      {
+          $scheduler = new SchedulerReportOperation();
+          $scheduler->setOperation($operation);
+          $scheduler->setInterval('1 hour');
+          $scheduler->setEndAction($operation->getActivity()->getCampaign());
+          $this->em->persist($scheduler);
+
+          $facts[self::METRIC_LIKES] = 0;
+          $facts[self::METRIC_COMMENTS] = 0;
+
+          $factService = $this->container->get('campaignchain.core.fact');
+          $factService->addFacts('activity', self::OPERATION_BUNDLE_NAME, $operation, $facts);
+      }
+
+      public function execute($operationId)
+      {
+          $operationService = $this->container->get('campaignchain.core.operation');
+          $operation = $operationService->getOperation($operationId);
+
+          $message = $this->em
+                          ->getRepository('AcmeOperationXingBundle:XingMessage')
+                          ->findOneByOperation($operationId);
+
+          if (!$message) {
+              throw new \Exception('No message found for an operation with ID: '.$operationId);
+          }
+
+          $activity = $message->getOperation()->getActivity();
+          $messageId = $message->getMessageId();
+
+          $client = $this->container->get('acme.channel.xing.rest.client');
+          $connection = $client->connectByActivity($activity);
+          
+          $request = $connection->get('activities/' . $messageId, array());
+          $response = $request->send()->json();
+          
+          if(!count($response)){
+              $likes = 0;
+              $comments = 0;
+          } else {
+              $likes = $response['activities'][0]['likes']['amount'];
+              $comments = $response['activities'][0]['comments']['amount'];
+          }
+
+          // Add report data.
+          $facts[self::METRIC_LIKES] = $likes;
+          $facts[self::METRIC_COMMENTS] = $comments;
+
+          $factService = $this->container->get('campaignchain.core.fact');
+          $factService->addFacts('activity', self::OPERATION_BUNDLE_NAME, $operation, $facts);
+
+          $this->message = 'Added to report: likes = '.$likes.', comments = '.$comments.'.';
+
+          return self::STATUS_OK;
+      }
+
+  }
+
+If you look into the *execute()* method above, you'll see that it begins 
+by retrieving the required message from the CampaignChain database (using 
+the message identifier). It then uses the message object's *getMessageId()* 
+method to retrieve the unique identifier for that message on XING.
+
+Next, it invokes the XingClient created earlier from the service manager 
+and uses the client to authenticate against the XING API.
+
+It then uses the client's inherited *get()* method to transmit 
+a GET request to the API endpoint https://api.xing.com/v1/activities/ID, 
+passing the message identifier to XING. If successful, the response will 
+include complete details for the specified message, including the number 
+of likes and comments it received. It's now easy enough to extract these 
+metrics from the response and save them to the CampaignChain database using 
+the Fact service. The XING documentation explains `this API method in more 
+detail`_.
+
+The *execute()* method does the work of collecting data from the XING API 
+and saving it to the CampaignChain database...but how is it invoked? That's 
+where the *schedule()* method comes in – it creates a new SchedulerReportOperation 
+that runs periodically for a specified operation. In this case, the scheduler 
+is configured to collect data every hour, and run for as long as the campaign 
+associated with the operation.
+
+Since the scheduler is associated with an Operation, it makes sense to 
+invoke the *schedule()* method when the operation is created. So, update 
+the *your-project/src/Acme/Operation/XingBundle/Job/XingMessage.php* file 
+and add the lines below to its *execute()* method, to be executed after 
+the message is successfully posted:
+
+::
+
+  <?php
+
+    // src/Acme/Operation/XingBundle/Job/XingMessage
+  
+    public function execute($operationId)
+    {
+        // ... snip
+        $location->setStatus(Medium::STATUS_ACTIVE);
+
+        // schedule data collection for report
+        $report = $this->container->get('campaignchain.job.report.acme.xing.message');
+        $report->schedule($message->getOperation());  
+      
+        $this->em->flush();
+        // ... snip
+    }
+
 Conclusion
 ------------
 
@@ -1808,4 +2006,5 @@ how easy it is!
 .. _Learn more about the API: https://dev.xing.com/docs
 .. _Register your application: https://dev.xing.com/applications/dashboard
 .. _an example and more information: https://dev.xing.com/docs/post/users/:id/status_message
+.. _this API method in more detail: https://dev.xing.com/docs/get/activities/:id
 .. _Guzzle: http://docs.guzzlephp.org/en/latest/quickstart.html
