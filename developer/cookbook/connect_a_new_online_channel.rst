@@ -1264,6 +1264,11 @@ your Operation module at *your-project/src/Acme/Operation/XingBundle/Job/XingMes
               throw new \Exception('No message found for an operation with ID: '.$operationId);
           }
 
+          $ctaService = $this->container->get('campaignchain.core.cta');
+          $message->setMessage(
+              $ctaService->processCTAs($message->getMessage(), $message->getOperation(), CTAService::FORMAT_TXT)->getContent()
+          );
+          
           $activity = $message->getOperation()->getActivity();
           $identifier = $activity->getLocation()->getIdentifier();
           $token = $this->tokenService->getToken($activity->getLocation());
@@ -1299,16 +1304,19 @@ which mandates an *execute()* method which is called when the job is executed.
 
 If you look into the *execute()* method above, you'll see that it begins by 
 retrieving the required message from the CampaignChain database (using the 
-message identifier). It then invokes the XingClient created earlier from 
-the service manager and uses the client to authenticate against the XING API.
+message identifier). It then uses CampaignChain's CTA service and 
+*processCTAs()* method to inspect all URLs in the message body and replace 
+those URLs that match a Location with short URLs for tracking.
 
-The next step is to use the client's inherited *post()* method to transmit 
-a POST request to the API endpoint https://api.xing.com/v1/users/ID/status_message 
-containing the user's identifier on XING and the message content. If successful, 
-the response will contain a Location header containing the URL to the posted 
-message. It's now easy enough to extract the message identifier from this 
-and create a new Location record pointing to it in the CampaignChain database. 
-This Location can later be used in CampaignChain's Call-to-Action tracking. 
+The next step is to invoke the XingClient created earlier from the service 
+manager and uses the client to authenticate against the XING API. The method 
+uses the client's inherited *post()* method to transmit a POST request to the 
+API endpoint https://api.xing.com/v1/users/ID/status_message containing the 
+user's identifier on XING and the message content. If successful, the response 
+will contain a Location header containing the URL to the posted message. 
+It's now easy enough to extract the message identifier from this and create 
+a new Location record pointing to it in the CampaignChain database. This 
+Location can later be used in CampaignChain's Call-to-Action tracking. 
 
 At the same time, a new XingMessage record is also created to store the 
 message URL and unique message identifier on XING. This message identifier 
