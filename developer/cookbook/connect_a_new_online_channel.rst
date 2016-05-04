@@ -12,14 +12,14 @@ XING activity stream and post updates to it.
 Assumptions and Prerequisites
 -----------------------------
 * You have a `Symfony environment`_ meeting all the system requirements.
-* You have a working `CampaignChain development installation`_.
+* You have a working :doc:`CampaignChain development installation </administrator/installation/dev>`.
 * You have a good understanding of the OAuth authentication process.
 * You have a good understanding of the XING REST API. 
   `Learn more about the API`_.
 * You have an application registered with XING and have obtained the 
   necessary keys. `Register your application`_.
 * You have an account registered with XING, or you have access to the 
-  `CampaignChain live development environment`_ (optional, for testing).
+  :doc:`CampaignChain live development environment </developer/book/development_environment>` (optional, for testing).
 
 Overview
 --------
@@ -1967,7 +1967,7 @@ detail`_.
 
 The *execute()* method does the work of collecting data from the XING API 
 and saving it to the CampaignChain database...but how is it invoked? That's 
-where the *schedule()* method comes in – it creates a new SchedulerReportOperation 
+where the *schedule()* method comes in ï¿½ it creates a new SchedulerReportOperation 
 that runs periodically for a specified operation. In this case, the scheduler 
 is configured to collect data every hour, and run for as long as the campaign 
 associated with the operation.
@@ -2007,8 +2007,6 @@ location and begin posting news to it. Try it out for yourself and see
 how easy it is!
 
 
-.. _CampaignChain live development environment: /developer/book/development_environment.html
-.. _CampaignChain development installation: /administrator/installation/dev.html
 .. _XING: http://www.xing.com
 .. _Symfony environment: http://symfony.com/doc/current/book/installation.html
 .. _Learn more about the API: https://dev.xing.com/docs
