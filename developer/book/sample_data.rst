@@ -73,9 +73,11 @@ Usage
 -----
 
 If ``campaignchain_dev`` is set to ``true`` in ``app/config/parameters.yml``,
-then you will be able to load sample data into CampaignChain by visiting the
-page http://example.com/development/sample-data of your CampaignChain
-installation.
+then you will be able to load sample data into CampaignChain in its Graphical
+User Interface or through a command.
+
+To use the GUI, visit the page http://example.com/development/sample-data of
+your CampaignChain installation.
 
 .. image:: /images/developer/book/load_sample_data.png
     :width: 600px
@@ -91,7 +93,11 @@ installation.
    otherwise specified by the package).
 
 In addition to the user interface, you could also load sample data by using the
-command line as described in the `"Commands" section for the Alice Fixtures Bundle`_.
+command line. Issue the following command in the root of your CampaignChain
+installation to load the test data along with its credentials:
+
+    $ php app/console campaignchain:fixture vendor/amariki/data-test/Resources/data/campaignchain/data.yml vendor/amariki/secrets/credentials_test.yml
+
 
 Recovery
 --------
