@@ -96,6 +96,8 @@ In addition to the user interface, you could also load sample data by using the
 command line. Issue the following command in the root of your CampaignChain
 installation to load the test data along with its credentials:
 
+.. code-block:: bash
+
     $ php app/console campaignchain:fixture vendor/amariki/data-test/Resources/data/campaignchain/data.yml vendor/amariki/secrets/credentials_test.yml
 
 
