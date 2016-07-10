@@ -115,7 +115,7 @@ JavaScript function that is being called to pass the Channel ID in the tracking
 code.
 
 When accessed through the Symfony production environment (i.e. */app.php*), then
-the tracking script will automatically minimized/obfuscated. This is how it
+the tracking script will automatically be minimized/obfuscated. This is how it
 looks then with the default configuration parameters explained above:
 
 .. code-block:: js
