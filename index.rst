@@ -61,8 +61,8 @@ Tips & tricks for marketers to make the best use of CampaignChain.
 
     user/index
 
-Documentation
--------------
+Contributing to Documentation
+-----------------------------
 
 Learn how to contribute to this documentation, about its license, and more.
 
@@ -70,3 +70,11 @@ Learn how to contribute to this documentation, about its license, and more.
     :maxdepth: 2
 
         documentation/index
+
+Miscellanea
+-----------
+
+.. toctree::
+    :maxdepth: 1
+
+        glossary

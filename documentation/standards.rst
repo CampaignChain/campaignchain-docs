@@ -1,5 +1,5 @@
-CampaignChain Documentation Standards
-=====================================
+Documentation Standards
+=======================
 
 Symfony Documentation Standards
 -------------------------------

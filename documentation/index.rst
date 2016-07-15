@@ -6,4 +6,3 @@ About this Documentation
 
     standards
     license
-    glossary
