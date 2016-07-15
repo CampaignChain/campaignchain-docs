@@ -25,7 +25,7 @@ Our goal is to help everyone make innovative marketing ideas come true.
     :maxdepth: 1
 
         Introduction for Marketers <user/overview>
-        Introduction for Developers <open/overview>
+        Introduction for Developers <open/developer/overview>
 
 CampaignChain Open Edition
 --------------------------
