@@ -33,10 +33,6 @@ URL when the Operation gets executed.
 Visual Summary
 ~~~~~~~~~~~~~~
 
-This is a high-level overview of the architecture.
-
-.. image:: /images/architecture.png
-
 The following diagram explains the relationship between the various entities.
 
 .. image:: /images/components-conceptual.png
