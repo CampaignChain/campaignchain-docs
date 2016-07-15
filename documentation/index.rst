@@ -6,3 +6,4 @@ Contributing to Documentation
 
     standards
     license
+    glossary

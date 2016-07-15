@@ -1,39 +1,55 @@
 CampaignChain Documentation
 ===========================
 
-Developers
-----------
+Abstract
+--------
 
-Get started with CampaignChain quickly in this step-by-step guide.
+This is the CampaignChain documentation. It provides information to end users,
+administrators and developers.
+
+What is CampaignChain?
+----------------------
+
+With CampaignChain, marketers can plan, execute, monitor and optimize campaigns
+in a holistic overview. Programmers can integrate communication channels, tools
+and devices with our open-source platform.
+
+Today, marketers face an increasing amount of online channels, tools and devices
+(IoT, beacons). As the opportunities for highly targeted marketing grow, so
+does fragmentation of workflows. CampaignChain is the only marketing technology
+that allows for a comprehensive real-time access to all marketing activities.
+
+Our goal is to help everyone make innovative marketing ideas come true.
 
 .. toctree::
     :maxdepth: 1
 
-    /developer/quick_tour/index
+        Introduction for Marketers <user/overview>
+        Introduction for Developers <open/overview>
 
-Learn the general concepts of developing with CampaignChain.
+CampaignChain Open Edition
+--------------------------
+
+The CampaignChain Open Edition is available under an Open Source license on
+GitHub. It is the first open-source platform for marketing integration.
+
+.. toctree::
+    :maxdepth: 1
+
+    open/index
+
+CampaignChain Custom Edition
+----------------------------
+
+The CampaignChain Custom Edition is a commercial product. It is based on the
+CampaignChain Open Edition and provides additional features, such as easy
+deployment for development or production environments, as well as automated
+updates to simplify the maintenance of CampaignChain instances.
 
 .. toctree::
     :maxdepth: 2
 
-    /developer/book/index
-
-Hands-on tutorials that teach you how to use CampaignChain in concrete scenarios.
-
-.. toctree::
-    :maxdepth: 2
-
-    /developer/cookbook/index
-
-Administrators
---------------
-
-Documentation that explains how to install and configure CampaignChain.
-
-.. toctree::
-    :maxdepth: 2
-
-    /administrator/index
+    custom/index
 
 Users
 -----
@@ -43,14 +59,14 @@ Tips & tricks for marketers to make the best use of CampaignChain.
 .. toctree::
     :maxdepth: 2
 
-    /user/index
+    user/index
 
-Miscellanea
------------
+Documentation
+-------------
+
+Learn how to contribute to this documentation, about its license, and more.
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
-    /contributing/index
-    glossary
-    contributing/documentation/license
+        documentation/index
