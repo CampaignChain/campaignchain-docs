@@ -67,6 +67,6 @@ Documentation
 Learn how to contribute to this documentation, about its license, and more.
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
 
         documentation/index
