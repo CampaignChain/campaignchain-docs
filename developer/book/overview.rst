@@ -35,7 +35,7 @@ Visual Summary
 
 This is a high-level overview of the architecture.
 
-..image:: /images/architecture.png
+.. image:: /images/architecture.png
 
 The following diagram explains the relationship between the various entities.
 
