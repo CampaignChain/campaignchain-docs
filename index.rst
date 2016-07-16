@@ -69,7 +69,7 @@ Learn how to contribute to this documentation, about its license, and more.
 .. toctree::
     :maxdepth: 2
 
-        /documentation/index
+    documentation/index
 
 Miscellanea
 -----------
@@ -77,4 +77,4 @@ Miscellanea
 .. toctree::
     :maxdepth: 2
 
-        /glossary
+    glossary
