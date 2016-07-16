@@ -89,14 +89,31 @@ CampaignChain for your channel.
 
 If you want to hide from visitors to your CTA-tracked Channel, that you are
 using CampaignChain or you want to custom brand the tracking code, then we have
-configuration options for you in the *parameters.yml* file:
+configuration options for you.
+
+One is in the *app/config/parameters.yml* file:
+
+.. code-block:: yaml
+
+    parameters:
+        campaignchain.tracking.js_route: /tracking.js
+
+The URL of the tracking script itself can be changed with
+*campaignchain.tracking.js_route*. There you defined the path aka URI to the
+script relative to the base URL where CampaignChain is installed.
+
+.. warning::
+
+    We recommend to not change the route after you started using CampaignChain.
+    If you have to for whatever reason, be aware that it affects all Channels
+    that include the tracking snippet. They would have to adjust the path to
+    the tracking script in said snippet.
 
 .. code-block:: yaml
 
     campaignchain_core:
         tracking:
             id_name: cctid
-            js_route: /tracking.js
             js_mode: prod
             js_class: CCTracking
             js_init: cc
@@ -106,9 +123,11 @@ parameter which CampaignChain attaches to links pointing to a connected channel.
 Make sure the name you choose is short and as unique as possible, to avoid that
 it collides with other parameters that might already be in the URL.
 
-The URL of the tracking script itself can be changed with
-*campaignchain_core.tracking.js_route*. There you defined the path aka URI to the
-script relative to the base URL where CampaignChain is installed.
+.. warning::
+
+    Never change the ``id_name`` after you started using CampaignChain, because
+    previous tracking data might get lost and there are unforeseeable side-effects
+    with upcoming changes to the functionality.
 
 The name of the JavaScript class that appears inside the tracking script can
 be customized with the *campaignchain_core.tracking.js_class* parameter.
@@ -116,6 +135,11 @@ be customized with the *campaignchain_core.tracking.js_class* parameter.
 Finally, *campaignchain_core.tracking.js_init* allows you to define the name of the
 JavaScript function that is being called to pass the Channel ID in the tracking
 code.
+
+.. warning::
+
+    As with the route, we recommend to not change it after you started using
+    CampaignChain, for the very same reasons.
 
 When accessed through the Symfony production environment (i.e. */app.php*), then
 the tracking script will automatically be minimized/obfuscated. This is how it
