@@ -142,6 +142,7 @@ The below license block has to be present at the top of every file:
 In PHP before the namespace:
 
 .. code-block:: php
+
     /*
      * Copyright 2016 CampaignChain, Inc. <info@campaignchain.com>
      *
@@ -161,6 +162,7 @@ In PHP before the namespace:
 In ``.yml`` configuration files, at the very top:
 
 .. code-block:: yaml
+
     # Copyright 2016 CampaignChain, Inc. <info@campaignchain.com>
     #
     # Licensed under the Apache License, Version 2.0 (the "License");
@@ -178,6 +180,7 @@ In ``.yml`` configuration files, at the very top:
 In TWIG files at the very top:
 
 .. code-block:: html+jinja
+
     {#
     Copyright 2016 CampaignChain, Inc. <info@campaignchain.com>
 
@@ -197,6 +200,7 @@ In TWIG files at the very top:
 In CSS files at the very top:
 
 .. code-block:: css
+
     /*
     Copyright 2016 CampaignChain, Inc. <info@campaignchain.com>
 
