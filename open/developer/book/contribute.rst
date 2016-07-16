@@ -113,9 +113,13 @@ defined elsewhere will be overridden.
 Modify Sample Data
 ~~~~~~~~~~~~~~~~~~
 
-Please modify the :ref:`sample data <dev-book-contribute-sample-data>` accordingly
-by changing existing fixtures or by adding those which allow others to test new
-features.
+Please branch the sample data repositories as well and then modify them
+:ref:`sample data <dev-book-contribute-sample-data>` accordingly by changing
+existing fixtures or by adding those which allow others to test new features.
+
+Of course, the branch name of the sample data should be the same as the branch
+name of the modules/bundles you are modifying, so that we know which branch
+to use when loading the sample data for testing.
 
 Branching Model
 ~~~~~~~~~~~~~~~
