@@ -24,6 +24,7 @@ the tracking script:
 .. code-block:: yaml
 
     parameters:
+        campaignchain.env: prod
         campaignchain.tracking.js_route: /tracking.js
 
 Bundle-specific Parameters
