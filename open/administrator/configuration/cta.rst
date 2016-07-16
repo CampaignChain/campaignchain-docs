@@ -109,7 +109,8 @@ script relative to the base URL where CampaignChain is installed.
     that include the tracking snippet. They would have to adjust the path to
     the tracking script in said snippet.
 
-The other relevant configuration options can be found *app/config/config_campaignchain_bundles.yml*:
+The other relevant configuration options can be found in
+*app/config/config_campaignchain_bundles.yml*:
 
 .. code-block:: yaml
 
