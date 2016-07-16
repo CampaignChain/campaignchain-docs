@@ -30,8 +30,9 @@ the tracking script:
 Bundle-specific Parameters
 --------------------------
 
-Each bundle or module might define its own configuration options. These are all
-listed in *app/config/config_campaignchain_bundles.yml* under an alias for each
+Each bundle or module might define its own configuration options. Should you
+want to override the default values, we recommend to set your values in
+*app/config/config_campaignchain_bundles.yml* under an alias for each
 bundle, e.g. ``campaignchain_core``.
 
 For example:
@@ -45,3 +46,6 @@ For example:
             js_mode: prod
             js_class: CCTracking
             js_init: cc
+
+You can look up the available options in the *Resources/config/config.yml* file
+for each bundle.
