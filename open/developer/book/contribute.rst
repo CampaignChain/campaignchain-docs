@@ -1,5 +1,5 @@
-How to Contribute
-=================
+Contributing to CampaignChain
+=============================
 
 If you would like to add new functionality or fix a bug in CampaignChain, you
 are more than welcomed!
