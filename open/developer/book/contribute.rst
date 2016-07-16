@@ -89,10 +89,9 @@ related issue, such as ``campaignchain-42``.
 Inline Alias in composer.json
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can define in the ```composer.json```_(https://github.com/CampaignChain/campaignchain/blob/master/composer.json)
-file of the application, which branched modules/bundles you'd like to use for
-development. Just list them in the ``require-dev`` section and define the
-branch as a `Composer inline alias`_.
+You can define in the `composer.json file of the application`_, which branched
+modules/bundles you'd like to use for development. Just list them in the
+``require-dev`` section and define the branch as a `Composer inline alias`_.
 
 Here's an example how to do it for your custom module/bundle:
 
@@ -255,3 +254,4 @@ module/bundle where you credit the copyright holders. See for example the
 .. _Apache License: http://www.apache.org/licenses/LICENSE-2.0
 .. _content of the Apache License: http://www.apache.org/licenses/LICENSE-2.0
 .. _NOTICE file of the core bundle: https://github.com/CampaignChain/core/blob/master/NOTICE
+.. _composer.json file of the application: https://github.com/CampaignChain/campaignchain/blob/master/composer.json
