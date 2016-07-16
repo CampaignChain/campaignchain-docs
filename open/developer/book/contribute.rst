@@ -39,7 +39,7 @@ Commit Message
 The Git commit message should point to the issue you are working on. The syntax
 is:
 
-.. code-block::
+.. code-block:: text
 
     CampaignChain/campaignchain#{issue-number} {issue-title}
 
@@ -47,7 +47,7 @@ In `PHPStorm`_, you can use below definition
 for the commit message field when configuring the GitHub server to retrieve
 issues within PHPStorm:
 
-.. code-block::
+.. code-block:: text
 
     CampaignChain/{project}#{number} {summary}
 
@@ -96,6 +96,7 @@ modules/bundles you'd like to use for development. Just list them in the
 Here's an example how to do it for your custom module/bundle:
 
 .. code-block:: yaml
+
     "require-dev": {
         "acme/my-bundle": "my-branch as dev-master"
     },
@@ -105,6 +106,7 @@ a branch and define it as an inline alias. All `Composer version constraints`_
 defined elsewhere will be overridden.
 
 .. code-block:: yaml
+
     "require-dev": {
         "campaignchain/core": "my-branch as dev-master"
     },
