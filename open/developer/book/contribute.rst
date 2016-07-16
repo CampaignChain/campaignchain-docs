@@ -83,6 +83,9 @@ How to Create a Branch?
 If you are not familiar with Git and branching, please read the introduction
 `Basic Branching and Merging`_.
 
+The name of the branch should include ``campaignchain-`` and the number of the
+related issue, such as ``campaignchain-42``.
+
 Inline Alias in composer.json
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -114,6 +117,15 @@ Please modify the :ref:`sample data <dev-book-contribute-sample-data>` according
 by changing existing fixtures or by adding those which allow others to test new
 features.
 
+Branching Model
+~~~~~~~~~~~~~~~
+
+We structure the flow of our development às follows:
+
+* The ``master`` branch holds the latest stable code.
+* New features are being developed in separate branches.
+* Release branches hold the code of the tagged ``master` branch.
+
 .. _dev-book-contribute-sample-data:
 
 Sample Data
@@ -137,7 +149,7 @@ Please add a ``LICENSE`` file with the `content of the Apache License`_ into the
 root of new packages that you want to be included as part of the CampaignChain
 Open Edition.
 
-The below license block has to be present at the top of every file:
+The below license block has to be present at the top of every file.
 
 In PHP before the namespace:
 
