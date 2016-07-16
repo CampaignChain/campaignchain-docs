@@ -135,7 +135,7 @@ We structure the flow of our development às follows:
 
 * The ``master`` branch holds the latest stable code.
 * New features are being developed in separate branches.
-* Release branches hold the code of the tagged ``master` branch.
+* Release branches hold the code of the tagged ``master`` branch.
 
 .. _dev-book-contribute-sample-data:
 
