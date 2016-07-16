@@ -65,6 +65,12 @@ and then comment on it, `even on single lines of the code`_.
 So, once you are done with your changes and they are all committed to your
 branch, please create a pull request and we'll review it.
 
+.. note::
+
+    The description of a pull request should include the link to the related
+    issue at the very top. This ensures that the pull request is showing up
+    when viewing the issue.
+
 .. _dev-book-contribute-branching:
 
 Branching
