@@ -4,5 +4,6 @@ Configuration
 .. toctree::
     :maxdepth: 2
 
+    overview
     cta
-    oauth_apps.rst
+    oauth_apps
