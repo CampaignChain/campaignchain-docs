@@ -248,6 +248,12 @@ allowed to do so. Please add a ``NOTICE`` file in the root directory of a new
 module/bundle where you credit the copyright holders. See for example the
 `NOTICE file of the core bundle`_.
 
+Documentation
+-------------
+
+For any changes or bug fixes, please consider amending the
+`CampaignChain Documentation`_
+
 .. _GitHub: http://www.github.com
 .. _contact us: http://www.campaignchain.com/contact/
 .. _Coding standards: http://symfony.com/doc/current/contributing/code/standards.html
@@ -263,3 +269,4 @@ module/bundle where you credit the copyright holders. See for example the
 .. _content of the Apache License: http://www.apache.org/licenses/LICENSE-2.0
 .. _NOTICE file of the core bundle: https://github.com/CampaignChain/core/blob/master/NOTICE
 .. _composer.json file of the application: https://github.com/CampaignChain/campaignchain/blob/master/composer.json
+.. _CampaignChain Documentation: https://github.com/CampaignChain/campaignchain-docs
