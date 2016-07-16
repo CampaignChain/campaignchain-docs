@@ -9,7 +9,7 @@ developed some of our own - which is mostly due to the fact that CampaignChain
 is highly modular.
 
 Find below some guidelines and we'd appreciate if you followed them. Should you
-have questions, please [contact us](http://www.campaignchain.com/contact/).
+have questions, please `contact us`_.
 
 Symfony
 -------
@@ -17,13 +17,13 @@ Symfony
 We closely follow the contribution guidelines of the Symfony project. Please
 make yourself acquainted with:
 
-* [Coding standards](http://symfony.com/doc/current/contributing/code/standards.html)
-* [Code conventions](http://symfony.com/doc/current/contributing/code/conventions.html)
+* `Coding standards`_
+* `Code conventions`_
 
 GitHub
 ------
 
-We use [GitHub]() to develop the CampaignChain Open Edition. It allows us to
+We use `GitHub`_ to develop the CampaignChain Open Edition. It allows us to
 collaborate with developers world-wide.
 
 Please follow these guidelines:
@@ -43,7 +43,7 @@ is:
 
     CampaignChain/campaignchain#{issue-number} {issue-title}
 
-In [PHPStorm](https://www.jetbrains.com/phpstorm/), you can use below definition
+In `PHPStorm`_, you can use below definition
 for the commit message field when configuring the GitHub server to retrieve
 issues within PHPStorm:
 
@@ -59,8 +59,8 @@ Instead, please :ref:`create branches <dev-book-contribute-branching>`. That way
 we can first test your contributions in the branch, ask you for changes, and
 then merge them with the ``master`` branch.
 
-What's great about GitHub is that it [let's you easily create pull requests](https://help.github.com/articles/creating-a-pull-request/)
-and then comment on it, [even on single lines of the code](https://help.github.com/articles/commenting-on-differences-between-files/).
+What's great about GitHub is that it `let's you easily create pull requests`_
+and then comment on it, `even on single lines of the code`_.
 
 So, once you are done with your changes and they are all committed to your
 branch, please create a pull request and we'll review it.
@@ -74,22 +74,22 @@ Whenever you create a new feature for CampaignChain or want to contribute a bug
 fix, please create a new branch of the respective CampaignChain module(s) or
 Symfony bundles you are working on.
 
-Also, make sure you create a new branch of the [CampaignChain/campaignchain](https://github.com/CampaignChain/campaignchain)
+Also, make sure you create a new branch of the `CampaignChain/campaignchain`_
 application as well.
 
 How to Create a Branch?
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 If you are not familiar with Git and branching, please read the introduction
-[Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging).
+`Basic Branching and Merging`_.
 
 Inline Alias in composer.json
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can define in the [``composer.json``](https://github.com/CampaignChain/campaignchain/blob/master/composer.json)
+You can define in the ```composer.json```_(https://github.com/CampaignChain/campaignchain/blob/master/composer.json)
 file of the application, which branched modules/bundles you'd like to use for
 development. Just list them in the ``require-dev`` section and define the
-branch as a [Composer inline alias](https://getcomposer.org/doc/articles/aliases.md#require-inline-alias).
+branch as a `Composer inline alias`_.
 
 Here's an example how to do it for your custom module/bundle:
 
@@ -99,7 +99,7 @@ Here's an example how to do it for your custom module/bundle:
     },
 
 If you are working on existing CampaignChain modules, e.g. to fix a bug, create
-a branch and define it as an inline alias. All [Composer version constraints](https://getcomposer.org/doc/articles/versions.md)
+a branch and define it as an inline alias. All `Composer version constraints`_
 defined elsewhere will be overridden.
 
 .. code-block:: yaml
@@ -130,10 +130,10 @@ License
 -------
 
 All code developed for the CampaignChain Open Edition is available under the
-[Apache License](http://www.apache.org/licenses/LICENSE-2.0). We ask all
+`Apache License`_. We ask all
 contributors to assign new code to the same license.
 
-Please add a ``LICENSE`` file with the [content of the Apache License](http://www.apache.org/licenses/LICENSE-2.0) into the
+Please add a ``LICENSE`` file with the `content of the Apache License`_ into the
 root of new packages that you want to be included as part of the CampaignChain
 Open Edition.
 
@@ -219,4 +219,19 @@ Credits
 If you use third-party intellectual property, you must make sure that you are
 allowed to do so. Please add a ``NOTICE`` file in the root directory of a new
 module/bundle where you credit the copyright holders. See for example the
-[NOTICE file of the core bundle](https://github.com/CampaignChain/core/blob/master/NOTICE).
+`NOTICE file of the core bundle`_.
+
+.. _GitHub: http://www.github.com
+.. _contact us: http://www.campaignchain.com/contact/
+.. _Coding standards: http://symfony.com/doc/current/contributing/code/standards.html
+.. _Code conventions: http://symfony.com/doc/current/contributing/code/conventions.html
+.. _PHPStorm: https://www.jetbrains.com/phpstorm/
+.. _let's you easily create pull requests: https://help.github.com/articles/creating-a-pull-request/
+.. _even on single lines of the code: https://help.github.com/articles/commenting-on-differences-between-files/
+.. _CampaignChain/campaignchain: https://github.com/CampaignChain/campaignchain
+.. _Basic Branching and Merging: https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+.. _Composer inline alias: https://getcomposer.org/doc/articles/aliases.md#require-inline-alias
+.. _Composer version constraints: https://getcomposer.org/doc/articles/versions.md
+.. _Apache License: http://www.apache.org/licenses/LICENSE-2.0
+.. _content of the Apache License: http://www.apache.org/licenses/LICENSE-2.0
+.. _NOTICE file of the core bundle: https://github.com/CampaignChain/core/blob/master/NOTICE
