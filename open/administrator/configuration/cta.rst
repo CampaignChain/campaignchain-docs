@@ -93,24 +93,27 @@ configuration options for you in the *parameters.yml* file:
 
 .. code-block:: yaml
 
-    campaignchain.tracking.id_name: 'cctid'
-    campaignchain.tracking.js_route: '/tracking.js'
-    campaignchain.tracking.js_class: 'CCTracking'
-    campaignchain.tracking.js_init: 'cc'
+    campaignchain_core:
+        tracking:
+            id_name: cctid
+            js_route: /tracking.js
+            js_mode: prod
+            js_class: CCTracking
+            js_init: cc
 
-With *campaignchain.tracking.id_name*, you can define the name of the URL
+With *campaignchain_core.tracking.id_name*, you can define the name of the URL
 parameter which CampaignChain attaches to links pointing to a connected channel.
 Make sure the name you choose is short and as unique as possible, to avoid that
 it collides with other parameters that might already be in the URL.
 
 The URL of the tracking script itself can be changed with
-*campaignchain.tracking.js_route*. There you defined the path aka URI to the
+*campaignchain_core.tracking.js_route*. There you defined the path aka URI to the
 script relative to the base URL where CampaignChain is installed.
 
 The name of the JavaScript class that appears inside the tracking script can
-be customized with the *campaignchain.tracking.js_class* parameter.
+be customized with the *campaignchain_core.tracking.js_class* parameter.
 
-Finally, *campaignchain.tracking.js_init* allows you to define the name of the
+Finally, *campaignchain_core.tracking.js_init* allows you to define the name of the
 JavaScript function that is being called to pass the Channel ID in the tracking
 code.
 
