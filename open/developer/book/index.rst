@@ -12,3 +12,4 @@ The Developer Book
     cta
     development_environment
     sample_data
+    contribute

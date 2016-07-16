@@ -11,6 +11,15 @@ is highly modular.
 Find below some guidelines and we'd appreciate if you followed them. Should you
 have questions, please [contact us](http://www.campaignchain.com/contact/).
 
+Symfony
+-------
+
+We closely follow the contribution guidelines of the Symfony project. Please
+make yourself acquainted with:
+
+* [Coding standards](http://symfony.com/doc/current/contributing/code/standards.html)
+* [Code conventions](http://symfony.com/doc/current/contributing/code/conventions.html)
+
 GitHub
 ------
 
