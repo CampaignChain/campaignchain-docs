@@ -4,7 +4,7 @@ Development Mode
 It is highly recommended that you configure CampaignChain to run in development
 mode while you work on the code.
 
-To enable development mode, set the ``campaignchain_dev``parameter to ``true``
+To enable development mode, set the ``campaignchain.env``parameter to ``true``
 in *app/config/parameters.yml*.
 
 You should only do this prior to a fresh installation of CampaignChain and not

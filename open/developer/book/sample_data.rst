@@ -74,7 +74,7 @@ these instructions:
 Usage
 -----
 
-If ``campaignchain_dev`` is set to ``true`` in ``app/config/parameters.yml``,
+If ``campaignchain.env`` is set to ``true`` in ``app/config/parameters.yml``,
 then you will be able to load sample data into CampaignChain in its Graphical
 User Interface or through a command.
 
