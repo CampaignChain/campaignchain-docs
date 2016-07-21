@@ -1,5 +1,5 @@
-The Administrator Handbook
-==========================
+Open Edition Administrator Handbook
+===================================
 
 .. toctree::
     :maxdepth: 2
