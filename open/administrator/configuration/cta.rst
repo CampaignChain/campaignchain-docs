@@ -29,17 +29,19 @@ base URL of a Website (you can omit adding pages of the Website).
 ------------------------
 
 Once you're done with connecting a trackable Channel, CampaignChain will display
-a list of connected Channels to you. This list will include a button to enable
-CTA tracking for trackable Channels.
+a list of connected Channels to you. The list of Channels can also be reached
+via the settings icon in the header.
+
+This list will include a button to enable CTA tracking for trackable Channels.
 
 .. image:: /images/administrator/channels_list.png
-:width: 600px
+    :width: 600px
 
 Clicking on such button will display a page with instructions to include the
 tracking snippet.
 
 .. image:: /images/administrator/enable_cta_tracking.png
-:width: 600px
+    :width: 600px
 
 2.1 Directly within HMTL Source Code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
