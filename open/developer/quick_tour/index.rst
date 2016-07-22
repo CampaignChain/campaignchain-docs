@@ -11,7 +11,7 @@ Installation
 
 Install CampaignChain with some sample data in 10 minutes! Learn all about the
 system requirements, step-by-step installation and configuration as well as
-how to load the sample data in the :doc:`Community Edition installation </ce/administrator/installation/ce>` tutorial.
+how to load the sample data in the :doc:`Community Edition installation </open/administrator/installation/ce>` tutorial.
 
 Architecture
 ------------
@@ -19,11 +19,11 @@ Architecture
 Before you start developing with CampaignChain, please make yourself familiar with
 the following concepts of its software architecture:
 
-1. :doc:`Features, entities, calls to action </ce/developer/book/overview>`
-2. :doc:`General introduction to modules </ce/developer/book/modules>`
+1. :doc:`Features, entities, calls to action </open/developer/book/overview>`
+2. :doc:`General introduction to modules </open/developer/book/modules>`
 
 Development
 -----------
 
 Customizing and enhancing CampaignChain can all be done through modules. There is
-an in-depth tutorial available that shows you how to :doc:`Connect a new Online Channel </ce/developer/cookbook/connect_a_new_online_channel>`.
+an in-depth tutorial available that shows you how to :doc:`Connect a new Online Channel </open/developer/cookbook/connect_a_new_online_channel>`.

@@ -143,7 +143,7 @@ Sample Data
 -----------
 
 When you are developing with CampaignChain, sample data will be available
-automatically. Learn how to :doc:`import sample data to the system </ce/developer/book/sample_data>`.
+automatically. Learn how to :doc:`import sample data to the system </open/developer/book/sample_data>`.
 
 To allow testing of your changes by others, please keep all the publicly available
 :ref:`sample data packages <dev-book-sample-data-packages>` in sync with your

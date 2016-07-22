@@ -25,7 +25,7 @@ Our goal is to help everyone make innovative marketing ideas come true.
     :maxdepth: 1
 
         Introduction for Marketers <user/overview>
-        Introduction for Developers </ce/developer/book/overview>
+        Introduction for Developers <open/developer/book/overview>
 
 CampaignChain Community Edition
 -------------------------------
@@ -36,7 +36,7 @@ GitHub. It is the first open-source platform for marketing integration.
 .. toctree::
     :maxdepth: 2
 
-    /ce/index
+    open/index
 
 CampaignChain Enterprise Edition
 --------------------------------
@@ -49,7 +49,7 @@ updates to simplify the maintenance of CampaignChain instances.
 .. toctree::
     :maxdepth: 2
 
-    /ee/index
+    ee/index
 
 Users
 -----

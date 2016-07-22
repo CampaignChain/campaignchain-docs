@@ -143,7 +143,7 @@ You can easily add modules (e.g. to post on Twitter or Facebook) at http://local
 Start Developing!
 -----------------
 
-You can now :doc:`start developing with CampaignChain </ce/developer/book/index>` and create your
+You can now :doc:`start developing with CampaignChain </open/developer/book/index>` and create your
 own bundles that include CampaignChain modules in the *src/* directory inside
 the Symfony root.
 
