@@ -69,7 +69,7 @@ these instructions:
 .. note::
     If you would like to retrieve a ``credentials.yml`` file for the default
     sample data packages that works out-of-the-box, check out how to apply for
-    access to the :doc:`live development environment </open/developer/book/development_environment>`.
+    access to the :doc:`live development environment </ce/developer/book/development_environment>`.
 
 Usage
 -----
