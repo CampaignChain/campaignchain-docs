@@ -23,7 +23,7 @@ make yourself acquainted with:
 GitHub
 ------
 
-We use `GitHub`_ to develop the CampaignChain Open Edition. It allows us to
+We use `GitHub`_ to develop the CampaignChain Community Edition. It allows us to
 collaborate with developers world-wide.
 
 Please follow these guidelines:
@@ -143,7 +143,7 @@ Sample Data
 -----------
 
 When you are developing with CampaignChain, sample data will be available
-automatically. Learn how to :doc:`import sample data to the system </open/developer/book/sample_data>`.
+automatically. Learn how to :doc:`import sample data to the system </ce/developer/book/sample_data>`.
 
 To allow testing of your changes by others, please keep all the publicly available
 :ref:`sample data packages <dev-book-sample-data-packages>` in sync with your
@@ -152,7 +152,7 @@ branch.
 License
 -------
 
-All code developed for the CampaignChain Open Edition is available under the
+All code developed for the CampaignChain Community Edition is available under the
 `Apache License`_. We ask all
 contributors to assign new code to the same license.
 

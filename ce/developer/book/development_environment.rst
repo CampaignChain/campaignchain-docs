@@ -44,7 +44,7 @@ installed with the ``--stability=dev`` option through Composer_.
 * `amariki/data-test`_
 * `amariki/data-demo`_
 
-Learn :doc:`how to load sample data </open/developer/book/sample_data>` in
+Learn :doc:`how to load sample data </ce/developer/book/sample_data>` in
 CampaignChain.
 
 .. note::

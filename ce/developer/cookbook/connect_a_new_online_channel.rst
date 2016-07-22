@@ -12,14 +12,14 @@ XING activity stream and post updates to it.
 Assumptions and Prerequisites
 -----------------------------
 * You have a `Symfony environment`_ meeting all the system requirements.
-* You have a working :doc:`CampaignChain development installation </open/administrator/installation/dev>`.
+* You have a working :doc:`CampaignChain development installation </ce/administrator/installation/dev>`.
 * You have a good understanding of the OAuth authentication process.
 * You have a good understanding of the XING REST API. 
   `Learn more about the API`_.
 * You have an application registered with XING and have obtained the 
   necessary keys. `Register your application`_.
 * You have an account registered with XING, or you have access to the 
-  :doc:`CampaignChain live development environment </open/developer/book/development_environment>` (optional, for testing).
+  :doc:`CampaignChain live development environment </ce/developer/book/development_environment>` (optional, for testing).
 
 Overview
 --------
@@ -721,7 +721,7 @@ with the name *AcmeActivityXingBundle*.
 .. _Understand the API exposed by the channel you're connecting:
 
 2. Understand the XING API
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once the modules are created, let's look more closely at the message posting 
 operation to be implemented. Review the image below, which displays a typical 
@@ -1083,7 +1083,7 @@ Here's an example of what the form looks like when rendered:
 .. _Create an API client and operation processor:
 
 5. Create an API Client and Operation Processor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In the previous steps, you enabled the user to enter details of a new XING 
 message into a form and have that data saved to the CampaignChain database. 

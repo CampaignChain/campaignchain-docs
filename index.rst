@@ -25,24 +25,24 @@ Our goal is to help everyone make innovative marketing ideas come true.
     :maxdepth: 1
 
         Introduction for Marketers <user/overview>
-        Introduction for Developers <open/developer/book/overview>
+        Introduction for Developers <ce/developer/book/overview>
 
-CampaignChain Open Edition
---------------------------
+CampaignChain Community Edition
+-------------------------------
 
-The CampaignChain Open Edition is available under an Open Source license on
+The CampaignChain Community Edition is available under an Open Source license on
 GitHub. It is the first open-source platform for marketing integration.
 
 .. toctree::
     :maxdepth: 2
 
-    open/index
+    ce/index
 
 CampaignChain Enterprise Edition
 --------------------------------
 
 The CampaignChain Enterprise Edition is a commercial product. It is based on the
-CampaignChain Open Edition and provides additional features, such as easy
+CampaignChain Community Edition and provides additional features, such as easy
 deployment for development or production environments, as well as automated
 updates to simplify the maintenance of CampaignChain instances.
 

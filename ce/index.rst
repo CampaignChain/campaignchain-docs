@@ -1,7 +1,7 @@
-CampaignChain Open Edition
+CampaignChain Community Edition
 ==========================
 
-The CampaignChain Open Edition is available under an Open Source license on
+The CampaignChain Community Edition is available under an Open Source license on
 GitHub. It is the first open-source platform for marketing integration.
 
 Developers
