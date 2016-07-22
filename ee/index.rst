@@ -1,7 +1,7 @@
-CampaignChain Custom Edition
-============================
+CampaignChain Enterprise Edition
+================================
 
-The CampaignChain Custom Edition is a commercial product for in-house IT teams
+The CampaignChain Enterprise Edition is a commercial product for in-house IT teams
 or service providers who would like to build custom solutions. With the Custom
 Edition, they can benefit from easier maintenance, additional functionality, as
 well as services and support from the vendor.

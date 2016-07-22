@@ -31,7 +31,7 @@ Please follow these guidelines:
 Issues
 ~~~~~~
 
-Always create an issue for the task you are working on at https://github.com/CampaignChain/campaignchain-custom/issues.
+Always create an issue for the task you are working on at https://github.com/CampaignChain/campaignchain-ee/issues.
 
 Commit Message
 ~~~~~~~~~~~~~~

@@ -38,10 +38,10 @@ GitHub. It is the first open-source platform for marketing integration.
 
     open/index
 
-CampaignChain Custom Edition
-----------------------------
+CampaignChain Enterprise Edition
+--------------------------------
 
-The CampaignChain Custom Edition is a commercial product. It is based on the
+The CampaignChain Enterprise Edition is a commercial product. It is based on the
 CampaignChain Open Edition and provides additional features, such as easy
 deployment for development or production environments, as well as automated
 updates to simplify the maintenance of CampaignChain instances.
@@ -49,7 +49,7 @@ updates to simplify the maintenance of CampaignChain instances.
 .. toctree::
     :maxdepth: 2
 
-    custom/index
+    ee/index
 
 Users
 -----
