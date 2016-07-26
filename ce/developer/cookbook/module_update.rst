@@ -1,10 +1,10 @@
 Creating Update Routines for Your Module
 ========================================
 
-When you `update a CampaignChain installation`_, the automatic update
-functionality takes the update routines provided with each CampaignChain module
-and applies them to the database schema and user-generated data (e.g. data in
-the database or in the file system).
+When you :doc:`update a CampaignChain installation </ce/administrator/deployment/update>`,
+the automatic update functionality takes the update routines provided with each
+CampaignChain module and applies them to the database schema and user-generated
+data (e.g. data in the database or in the file system).
 
 When developing your own modules, it is best practice to include such update
 routines as soon as something changes in your module that affects the database
@@ -295,6 +295,5 @@ of your CampaignChain installation:
 .. _installed CampaignChain as explained in the README.md file: https://github.com/CampaignChain/campaignchain/blob/master/README.md#installation
 .. _contact us: http://www.campaignchain.com/contact
 .. _Composer package name: https://getcomposer.org/doc/04-schema.md#name
-.. _update a CampaignChain installation: :doc:`/ce/administrator/deployment/update`
 .. _Doctrine Migration Bundle: http://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html
 .. _tagged Symfony services: http://symfony.com/doc/current/components/dependency_injection/tags.html

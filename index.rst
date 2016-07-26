@@ -61,6 +61,16 @@ Tips & tricks for marketers to make the best use of CampaignChain.
 
     user/index
 
+Packages
+--------
+
+Find the documentation for single packages included in CampaignChain below.
+
+.. toctree::
+    :maxdepth: 2
+
+    package/campaignchain_update
+
 Contributing to Documentation
 -----------------------------
 
