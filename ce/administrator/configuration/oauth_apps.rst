@@ -16,6 +16,8 @@ There are How-Tos available for each Channel:
 - :ref:`Twitter <twitter-oauth-app-configuration>`
 - :ref:`Facebook <facebook-oauth-app-configuration>`
 - :ref:`Linkedin <linkedin-oauth-app-configuration>`
+- :ref:`Google Analytics <google-analytic-oauth-app-configuration>`
+
 
 Edit existing OAuth App credentials
 -----------------------------------
