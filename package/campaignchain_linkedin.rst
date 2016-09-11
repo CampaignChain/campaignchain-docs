@@ -45,19 +45,25 @@ created in Linkedin:
 #. Go to https://www.linkedin.com/secure/developer (or https://www.linkedin.com/secure/developer?newapp=)
    and create a new application.
 #. Fill out any required fields such as the application name and description.
-#. Put your website domain in the Website field.
-#. Provide the host name of your CampaignChain instance as the Callback URL
-   (e.g. http://mydomain.com). Make sure that you specify the correct scheme
-   (`http` or `https`).
-#. The Callback URL's parts must be identical with the
+#. Once you created the App, go to the *Authentication* menu entry.
+#. Under *Default Application Permissions*, enable all permissions, i.e.
+   `r_basicprofile`, `r_emailaddress`, `rw_company_admin`, `w_share`.
+#. Under *OAuth 2.0*, provide the host name of your CampaignChain instance as
+   the *Authorized Redirect URL* (e.g. http://mydomain.com). Make sure that you
+   specify the correct scheme (`http` or `https`).
+#. The Authorized Redirect URL's parts must be identical with the
    `router.request_context.host` and `router.request_context.scheme` parameters
    defined in the `app/config/parameters.yml` configuration file.
-#. Once you have registered the app, :ref:`connect to a Location <create-new-oauth-apps>`
-   choosing Linkedin as the Channel.
+#. Once you saved all changes on the *Authentication* page, click on the
+   *JavaScript* menu entry. There, add the host name of your CampaignChain
+   installation as a *Valid SDK Domain*.
+#. After you saved the changes to the *JavaScript* page,
+   :ref:`connect to a Location <create-new-oauth-apps>` choosing Linkedin as the
+   Channel.
 #. When the *Provide Application Credentials* screen comes up, go back to
-   https://dev.linkedin.com/apps, select your app and visit the *Keys and
-   Access Tokens* tab to copy and paste the *Consumer Key* and the *Consumer
-   Secret* and insert it in the *Provide Application Credentials* form.
+   the *Authentication* page of your Linkedin App to copy and paste the *Client
+   ID* and the *Client Secret* and insert it in the *Provide Application
+   Credentials* form.
 
 Issues
 ------
