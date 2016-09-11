@@ -42,7 +42,8 @@ Configuration
 Before you can post on Linkedin from within CampaignChain, an OAuth app must be
 created in Linkedin:
 
-#. Go to https://dev.linkedin.com/apps and create a new application.
+#. Go to https://www.linkedin.com/secure/developer (or https://www.linkedin.com/secure/developer?newapp=)
+   and create a new application.
 #. Fill out any required fields such as the application name and description.
 #. Put your website domain in the Website field.
 #. Provide the host name of your CampaignChain instance as the Callback URL

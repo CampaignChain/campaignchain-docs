@@ -61,12 +61,21 @@ created in Facebook:
    *Settings* page to copy and paste the *App ID* and the *App Secret* and
    insert it in the *Provide Application Credentials* form.
 
-.. note::
+Should you want CampaignChain to post to Facebook streams which are *not* owned
+by the same Facebook account which owns your OAuth App, then you must have your
+OAuth App approved by Facebook. To do so, click on *App Review* on the left menu
+of your Facebook OAuth App.
 
-    Should you want CampaignChain to post to Facebook streams which are not
-    owned by the same Facebook account which owns your OAuth App, then you must
-    get your OAuth App approved by Facebook. To do so, click on *App Review*
-    on the left menu of your Facebook OAuth App.
+The following `Facebook login permissions`_ will have to be approved:
+
+- business_management
+- email
+- manage_pages
+- public_profile
+- publish_actions
+- publish_pages
+- read_insights
+- user_friends
 
 Issues
 ------
@@ -80,3 +89,4 @@ https://github.com/CampaignChain/campaignchain/issues.
 .. _campaignchain/activity-facebook: https://github.com/CampaignChain/activity-facebook
 .. _campaignchain/operation-facebook: https://github.com/CampaignChain/operation-facebook
 .. _Symfony bundles: http://symfony.com/doc/current/bundles.html
+.. _Facebook login permissions: https://developers.facebook.com/docs/facebook-login/permissions
