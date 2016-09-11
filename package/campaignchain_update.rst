@@ -1,5 +1,5 @@
-CampaignChain Update Package
-============================
+CampaignChain Update
+====================
 
 The update feature is a package that is included in CampaignChain by default and
 can also be used independently from CampaignChain as a regular Symfony bundle.

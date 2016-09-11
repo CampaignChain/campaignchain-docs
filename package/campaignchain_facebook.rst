@@ -1,5 +1,5 @@
-CampaignChain Facebook Packages
-===============================
+CampaignChain Facebook
+======================
 
 This documentation covers the standard Facebook functionality available by
 default in the CampaignChain Community Edition.

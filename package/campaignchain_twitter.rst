@@ -1,5 +1,5 @@
-CampaignChain Twitter Packages
-==============================
+CampaignChain Twitter
+=====================
 
 This documentation covers the standard Twitter functionality available by
 default in the CampaignChain Community Edition.
