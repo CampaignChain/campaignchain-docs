@@ -1,17 +1,26 @@
 OAuth Apps
 ==========
 
-To access the REST APIs of Channels such as Twitter or Facebook, CampaignChain must be
-registered as an App with these Channels to receive an App Key and App Secret. For
-example, you can do so at
+Create new OAuth Apps
+---------------------
 
-   - Twitter: https://apps.twitter.com
-   - Facebook: https://developers.facebook.com/apps
+To allow CampaignChain to post to Twitter, Facebook and some more Channels, it
+must be able to access the REST APIs of such Channels. Hence, CampaignChain
+must be registered as an App with these Channels to receive an App Key and App
+Secret.
 
-To enable CampaignChain modules to access the respective REST APIs, the App Keys and
-Secrets can be configured within CampaignChain as follows.
+There are How-Tos available for each Channel:
 
-In the CampaignChain header menu, click the *Settings* icon and select *OAuth Apps*.
+- `Twitter OAuth app configuration`_
+
+Edit existing OAuth App credentials
+-----------------------------------
+
+The App Keys and Secrets of Channels which have already been connected with
+CampaignChain, can be edited as follows:
+
+In the CampaignChain header menu, click the *Settings* icon and select *OAuth
+Client Apps*.
 
 .. image:: /images/administrator/settings_menu_oauth_apps.png
     :width: 600px

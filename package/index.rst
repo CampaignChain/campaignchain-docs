@@ -7,4 +7,5 @@ available for CampaignChain.
 .. toctree::
     :maxdepth: 2
 
+    campaignchain_twitter
     campaignchain_update

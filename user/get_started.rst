@@ -6,10 +6,12 @@ Campaign and Activity within CampaignChain. You will learn how to connect
 Twitter as a Channel and how to post a Tweet on the stream of the related
 Twitter user account.
 
-1. Connect to a Channel
------------------------
+.. _Connect to a Location:
 
-To connect a Twitter Channel with CampaignChain, click the *Create New*
+1. Connect to a Location
+------------------------
+
+To connect a Twitter Location with CampaignChain, click the *Create New*
 button in the header menu and choose *Location*.
 
 .. image:: /images/user/create_new_location.png
@@ -24,7 +26,7 @@ On the next screen, select Twitter as the Channel and click *Next*.
 .. note::
 
     Should you now see the *Provide Application Credentials* screen, then please
-    ask the CampaignChain administrator to do this for you and proceed as follows.
+    see the documentation on `Twitter OAuth app configuration`_.
 
 When clicking the button *Connect with Twitter*, the login screen for Twitter
 will be displayed to you. Please enter your Twitter user name and your Twitter
