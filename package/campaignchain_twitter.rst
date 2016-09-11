@@ -9,6 +9,7 @@ Features
 
 - Connect a Twitter stream to CampaignChain with username and password
 - Assign a Twitter message to a campaign
+- Include up to 4 pictures in a Tweet
 - Schedule a Tweet to automatically post it on Twitter at a given date and time
 - Assign a responsible person to a Tweet
 - Once a Tweet was posted, regularly collect statistical data about likes
@@ -53,7 +54,7 @@ created in Twitter:
 #. Once you have registered the app, `connect to a location`_ while choosing
    Twitter as the Channel.
 #. When the *Provide Application Credentials* screen comes up, go back to
-   https://dev.twitter.com/apps, select your app and visit the the *Keys and
+   https://dev.twitter.com/apps, select your app and visit the *Keys and
    Access Tokens* tab to copy and paste the *Consumer Key* and the *Consumer
    Secret* and insert it in the *Provide Application Credentials* form.
 
