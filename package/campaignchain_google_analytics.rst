@@ -36,6 +36,10 @@ Configuration
 Before you can use Google Analytics data within CampaignChain, an OAuth app must be
 created in Google:
 
+#. Go to https://code.google.com/apis/console/ and create a new project if you
+   did not do so yet.
+#. Go to https://console.developers.google.com/apis/library, search for these
+   APIs and enable them: `Analytics API`, `Google+ API`
 #. Go to https://console.developers.google.com/apis/credentials, click on
    *Create credentials* and select *OAuth client ID*.
 #. On the next page, select *Web application*.
