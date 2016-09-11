@@ -12,4 +12,5 @@ available for CampaignChain.
     campaignchain_linkedin
     campaignchain_google_analytics
     campaignchain_mailchimp
+    campaignchain_gotowebinar
     campaignchain_update
