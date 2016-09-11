@@ -14,6 +14,8 @@ Features
 - Schedule a message to automatically post it on Facebook at a given date and
   time
 - Assign a responsible person to a Facebook message
+- Track the customer journey from an included link to the Location of a
+  connected Channel (e.g. a Website page)
 - Once a Facebook update was posted, regularly collect statistical data about
   likes and comments
 

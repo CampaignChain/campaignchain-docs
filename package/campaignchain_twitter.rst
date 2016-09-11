@@ -12,6 +12,8 @@ Features
 - Include up to 4 pictures in a Tweet
 - Schedule a Tweet to automatically post it on Twitter at a given date and time
 - Assign a responsible person to a Tweet
+- Track the customer journey from an included link to the Location of a
+  connected Channel (e.g. a Website page)
 - Once a Tweet was posted, regularly collect statistical data about likes
   and re-tweets
 
@@ -47,7 +49,8 @@ created in Twitter:
 #. Put your website domain in the Website field.
 #. Provide the host name of your CampaignChain instance as the Callback URL
    (e.g. http://mydomain.com). Make sure that you specify the correct scheme
-   (`http` or `https`).
+   (`http` or `https`). If you omitted the Callback URL, the app won't work with
+   CampaignChain.
 #. The Callback URL's parts must be identical with the
    `router.request_context.host` and `router.request_context.scheme` parameters
    defined in the `app/config/parameters.yml` configuration file.

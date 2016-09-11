@@ -14,6 +14,8 @@ Features
 - Schedule a Linkedin message to automatically post it on Linkedin at a given
   date and time
 - Assign a responsible person to a Linkedin update
+- Track the customer journey from an included link to the Location of a
+  connected Channel (e.g. a Website page)
 
 .. note::
 

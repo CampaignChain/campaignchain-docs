@@ -64,7 +64,7 @@ Issues
 Please post reports, questions, suggestions, etc. at
 https://github.com/CampaignChain/campaignchain/issues.
 
-.. _Google Analytics: https://google-analytics.com/
+.. _Google Analytics: https://www.google.com/analytics/
 .. _campaignchain/channel-google-analytics: https://github.com/CampaignChain/channel-google-analytics
 .. _campaignchain/location-google-analytics: https://github.com/CampaignChain/location-google-analytics
 .. _Symfony bundles: http://symfony.com/doc/current/bundles.html
