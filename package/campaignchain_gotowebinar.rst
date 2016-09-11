@@ -70,8 +70,8 @@ Please post reports, questions, suggestions, etc. at
 https://github.com/CampaignChain/campaignchain/issues.
 
 .. _GoToWebinar: https://www.gotomeeting.com/webinar
-.. _campaignchain/channel-gotowebinar: https://github.com/CampaignChain/channel-citrix
-.. _campaignchain/location-gotowebinar: https://github.com/CampaignChain/location-citrix
+.. _campaignchain/channel-citrix: https://github.com/CampaignChain/channel-citrix
+.. _campaignchain/location-citrix: https://github.com/CampaignChain/location-citrix
 .. _campaignchain/activity-gotowebinar: https://github.com/CampaignChain/activity-gotowebinar
 .. _campaignchain/operation-gotowebinar: https://github.com/CampaignChain/operation-gotowebinar
 .. _Symfony bundles: http://symfony.com/doc/current/bundles.html
