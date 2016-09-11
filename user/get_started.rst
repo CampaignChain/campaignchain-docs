@@ -6,7 +6,7 @@ Campaign and Activity within CampaignChain. You will learn how to connect
 Twitter as a Channel and how to post a Tweet on the stream of the related
 Twitter user account.
 
-.. _Connect to a Location:
+.. _connect-to-a-location:
 
 1. Connect to a Location
 ------------------------

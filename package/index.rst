@@ -9,4 +9,5 @@ available for CampaignChain.
 
     campaignchain_twitter
     campaignchain_facebook
+    campaignchain_linkedin
     campaignchain_update

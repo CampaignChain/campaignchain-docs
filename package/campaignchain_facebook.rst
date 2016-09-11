@@ -1,7 +1,7 @@
 CampaignChain Facebook
 ======================
 
-This documentation covers the standard Facebook functionality available by
+This documentation covers the standard `Facebook`_ functionality available by
 default in the CampaignChain Community Edition.
 
 Features
@@ -54,8 +54,8 @@ created in Facebook:
 #. The Callback URL's parts must be identical with the
    `router.request_context.host` and `router.request_context.scheme` parameters
    defined in the `app/config/parameters.yml` configuration file.
-#. Once you have registered the app, `connect to a location`_ while choosing
-   Facebook as the Channel.
+#. Once you have registered the app, :ref:`connect to a Location <create-new-oauth-apps>`
+   choosing Facebook as the Channel.
 #. When the *Provide Application Credentials* screen comes up, go back to
    https://developers.facebook.com/apps, select your app and visit the
    *Settings* page to copy and paste the *App ID* and the *App Secret* and
@@ -74,7 +74,7 @@ Issues
 Please post reports, questions, suggestions, etc. at
 https://github.com/CampaignChain/campaignchain/issues.
 
-
+.. _Facebook: https://www.facebook.com
 .. _campaignchain/channel-facebook: https://github.com/CampaignChain/channel-facebook
 .. _campaignchain/location-facebook: https://github.com/CampaignChain/location-facebook
 .. _campaignchain/activity-facebook: https://github.com/CampaignChain/activity-facebook
