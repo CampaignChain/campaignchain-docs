@@ -77,7 +77,7 @@ CampaignChain installation:
 
 .. code-block:: bash
 
-    $ php app/console campaignchain:schmema:diff
+    $ php app/console campaignchain:schema:diff
 
 You will be asked to provide the `Composer package name`_, so that the command
 knows where to put the *diff* file. For example: *acme/my-package*. Once you
@@ -102,7 +102,7 @@ default package name in *app/config/parameters.yml* with:
         diff_package: acme/my-package
 
 Test the Schema Update
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 To test your schema update routines, run this command in the root of your
 CampaignChain installation:
