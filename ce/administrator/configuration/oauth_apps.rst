@@ -11,7 +11,7 @@ Secret.
 
 There are How-Tos available for each Channel:
 
-- `Twitter OAuth app configuration`_
+- :ref:`Twitter OAuth app configuration`
 
 Edit existing OAuth App credentials
 -----------------------------------

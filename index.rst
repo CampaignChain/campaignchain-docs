@@ -69,7 +69,7 @@ Find the documentation for single packages included in CampaignChain below.
 .. toctree::
     :maxdepth: 1
 
-    package/campaignchain_update
+    package/index
 
 Contributing to Documentation
 -----------------------------

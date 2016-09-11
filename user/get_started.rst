@@ -26,7 +26,7 @@ On the next screen, select Twitter as the Channel and click *Next*.
 .. note::
 
     Should you now see the *Provide Application Credentials* screen, then please
-    see the documentation on `Twitter OAuth app configuration`_.
+    see the documentation on :ref:`Twitter OAuth app configuration`.
 
 When clicking the button *Connect with Twitter*, the login screen for Twitter
 will be displayed to you. Please enter your Twitter user name and your Twitter
