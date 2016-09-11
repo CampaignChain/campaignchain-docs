@@ -36,7 +36,7 @@ The above modules are included in the Community Edition by default.
 Configuration
 -------------
 
-.. _Twitter OAuth app configuration:
+.. _twitter-oauth-app-configuration:
 
 Before you can post on Twitter from within CampaignChain, an OAuth app must be
 created in Twitter:

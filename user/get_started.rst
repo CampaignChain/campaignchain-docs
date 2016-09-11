@@ -11,8 +11,9 @@ Twitter user account.
 1. Connect to a Location
 ------------------------
 
-To connect a Twitter Location with CampaignChain, click the *Create New*
-button in the header menu and choose *Location*.
+To show you how to connect a new Location, we'll use Twitter as an example. To
+connect a Twitter Location with CampaignChain, click the *Create New* button in
+the header menu and choose *Location*.
 
 .. image:: /images/user/create_new_location.png
     :width: 600px
@@ -26,7 +27,7 @@ On the next screen, select Twitter as the Channel and click *Next*.
 .. note::
 
     Should you now see the *Provide Application Credentials* screen, then please
-    see the documentation on :ref:`Twitter OAuth app configuration`.
+    see :ref:`how to create new OAuth Apps <create-new-oauth-apps>`.
 
 When clicking the button *Connect with Twitter*, the login screen for Twitter
 will be displayed to you. Please enter your Twitter user name and your Twitter

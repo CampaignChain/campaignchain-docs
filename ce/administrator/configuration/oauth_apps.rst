@@ -4,6 +4,8 @@ OAuth Apps
 Create new OAuth Apps
 ---------------------
 
+.. _create-new-oauth-apps:
+
 To allow CampaignChain to post to Twitter, Facebook and some more Channels, it
 must be able to access the REST APIs of such Channels. Hence, CampaignChain
 must be registered as an App with these Channels to receive an App Key and App
@@ -11,7 +13,7 @@ Secret.
 
 There are How-Tos available for each Channel:
 
-- :ref:`Twitter OAuth app configuration`
+- :ref:`Twitter <twitter-oauth-app-configuration>`
 
 Edit existing OAuth App credentials
 -----------------------------------
