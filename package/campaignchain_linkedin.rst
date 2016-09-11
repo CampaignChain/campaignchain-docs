@@ -7,13 +7,20 @@ default in the CampaignChain Community Edition.
 Features
 --------
 
-- Connect a Linkedin stream to CampaignChain with username and password
+- Connect a Linkedin user or company page to CampaignChain with username and
+  password
 - Assign a Linkedin message to a campaign
-- Include up to 4 pictures in a Tweet
-- Schedule a Tweet to automatically post it on Linkedin at a given date and time
-- Assign a responsible person to a Tweet
-- Once a Tweet was posted, regularly collect statistical data about likes
-  and re-tweets
+- Include 1 picture in a Linkedin status update
+- Schedule a Linkedin message to automatically post it on Linkedin at a given
+  date and time
+- Assign a responsible person to a Linkedin update
+
+.. note::
+
+    To let CampaignChain regularly collect statistical data about likes and
+    comments of Linkedin messages, you would have to apply to become a
+    `Linkedin partner`_. Otherwise, CampaignChain won't have access to the
+    respective REST API endpoints.
 
 Packages
 --------
@@ -77,3 +84,4 @@ https://github.com/CampaignChain/campaignchain/issues.
 .. _campaignchain/activity-linkedin: https://github.com/CampaignChain/activity-linkedin
 .. _campaignchain/operation-linkedin: https://github.com/CampaignChain/operation-linkedin
 .. _Symfony bundles: http://symfony.com/doc/current/bundles.html
+.. _Linkedin partner: https://developer.linkedin.com/partner-programs
