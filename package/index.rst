@@ -8,4 +8,5 @@ available for CampaignChain.
     :maxdepth: 2
 
     campaignchain_twitter
+    campaignchain_facebook
     campaignchain_update
