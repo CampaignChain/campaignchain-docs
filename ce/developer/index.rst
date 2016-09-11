@@ -1,5 +1,5 @@
-Open Edition Developer Documentation
-====================================
+Community Edition Developer Documentation
+=========================================
 
 .. toctree::
     :maxdepth: 2

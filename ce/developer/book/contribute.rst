@@ -158,7 +158,7 @@ contributors to assign new code to the same license.
 
 Please add a ``LICENSE`` file with the `content of the Apache License`_ into the
 root of new packages that you want to be included as part of the CampaignChain
-Open Edition.
+Community Edition.
 
 The below license block has to be present at the top of every file.
 
