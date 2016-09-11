@@ -19,6 +19,7 @@ There are How-Tos available for each Channel:
 - :ref:`Google Analytics <google-analytics-oauth-app-configuration>`
 - :ref:`MailChimp <mailchimp-oauth-app-configuration>`
 - :ref:`GoToWebinar <gotowebinar-oauth-app-configuration>`
+- :ref:`SlideShare <slideshare-oauth-app-configuration>`
 
 Edit existing OAuth App credentials
 -----------------------------------
