@@ -44,8 +44,12 @@ created in Twitter:
 #. Go to https://dev.twitter.com/apps and create a new application.
 #. Fill out any required fields such as the application name and description.
 #. Put your website domain in the Website field.
-#. Provide the domain of your CampaignChain instance as the Callback URL. Make
-   sure that you specify the correct protocol (`http` or `https`).
+#. Provide the host name of your CampaignChain instance as the Callback URL
+   (e.g. http://mydomain.com). Make sure that you specify the correct scheme
+   (`http` or `https`).
+#. The Callback URL's parts must be identical with the
+   `router.request_context.host` and `router.request_context.scheme` parameters
+   defined in the `app/config/parameters.yml` configuration file.
 #. Once you have registered the app, `connect to a location`_ while choosing
    Twitter as the Channel.
 #. When the *Provide Application Credentials* screen comes up, go back to
