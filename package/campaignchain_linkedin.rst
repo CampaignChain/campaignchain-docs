@@ -67,7 +67,7 @@ created in Linkedin:
    *JavaScript* menu entry. There, add the host name of your CampaignChain
    installation as a *Valid SDK Domain*.
 #. After you saved the changes to the *JavaScript* page,
-   :ref:`connect to a Location <create-new-oauth-apps>` choosing Linkedin as the
+   :ref:`connect to a Location <connect-to-a-location>` choosing Linkedin as the
    Channel.
 #. When the *Provide Application Credentials* screen comes up, go back to
    the *Authentication* page of your Linkedin App to copy and paste the *Client

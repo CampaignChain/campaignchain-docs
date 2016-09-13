@@ -51,7 +51,7 @@ created in Google:
 #. The Callback URL's parts must be identical with the
    `router.request_context.host` and `router.request_context.scheme` parameters
    defined in the `app/config/parameters.yml` configuration file.
-#. Once you have created the app, :ref:`connect to a Location <create-new-oauth-apps>`
+#. Once you have created the app, :ref:`connect to a Location <connect-to-a-location>`
    choosing Google Analytics as the Channel.
 #. When the *Provide Application Credentials* screen comes up, go back to
    https://console.developers.google.com/apis/credentials, select your app and

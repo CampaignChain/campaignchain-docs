@@ -52,7 +52,7 @@ OAuth app must be created in MailChimp:
 #. The Callback URL's parts must be identical with the
    `router.request_context.host` and `router.request_context.scheme` parameters
    defined in the `app/config/parameters.yml` configuration file.
-#. Once you have registered the app, :ref:`connect to a Location <create-new-oauth-apps>`
+#. Once you have registered the app, :ref:`connect to a Location <connect-to-a-location>`
    choosing MailChimp as the Channel.
 #. When the *Provide Application Credentials* screen comes up, go back to
    https://admin.mailchimp.com/account/oauth2/, select your app and copy and

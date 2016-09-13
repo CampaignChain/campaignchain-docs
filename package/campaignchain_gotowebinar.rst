@@ -50,7 +50,7 @@ app must be created in Citrix (the company behind GoToWebinar):
 #. The Callback URL's parts must be identical with the
    `router.request_context.host` and `router.request_context.scheme` parameters
    defined in the `app/config/parameters.yml` configuration file.
-#. Once you have added the app, :ref:`connect to a Location <create-new-oauth-apps>`
+#. Once you have added the app, :ref:`connect to a Location <connect-to-a-location>`
    choosing GoToWebinar as the Channel.
 #. When the *Provide Application Credentials* screen comes up, go back to
    https://developer.citrixonline.com/user/me/apps, select your app and visit

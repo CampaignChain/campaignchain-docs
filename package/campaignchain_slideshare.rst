@@ -44,7 +44,7 @@ created in SlideShare:
 
 #. Apply for an API key at http://www.slideshare.net/developers/applyforapi.
 #. Fill out any required fields such as the application name and description.
-#. Once you received the API key via email, :ref:`connect to a Location <create-new-oauth-apps>`
+#. Once you received the API key via email, :ref:`connect to a Location <connect-to-a-location>`
    choosing SlideShare as the Channel.
 #. When the *Provide Application Credentials* screen comes up, insert the API
    key in the *Provide Application Credentials* form.
