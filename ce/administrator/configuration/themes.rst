@@ -6,12 +6,12 @@ The look & feel of CampaignChain can be configured as follows.
 Layout
 ~~~~~~
 
-CampaignChain let's you configure various parts of the layout. For example,
+CampaignChain lets you configure various parts of the layout. For example,
 whether you want to show the header and footer of the graphical user interface.
 This comes handy if you want to omit them to embed CampaignChain through an
 iFrame.
 
-The standard configuration of CampaignChain supports to layouts:
+The standard configuration of CampaignChain supports two layouts:
 
 * default
 * embedded
