@@ -99,12 +99,16 @@ You can define in the `composer.json file of the application`_, which branched
 modules/bundles you'd like to use for development. Just list them in the
 ``require-dev`` section and define the branch as a `Composer inline alias`_.
 
+.. note::
+
+    You must prefix our branch name with``dev-``.
+
 Here's an example how to do it for your custom module/bundle:
 
 .. code-block:: yaml
 
     "require-dev": {
-        "acme/my-bundle": "my-branch as dev-master"
+        "acme/my-bundle": "dev-my-branch as dev-master"
     },
 
 If you are working on existing CampaignChain modules, e.g. to fix a bug, create
@@ -114,7 +118,7 @@ defined elsewhere will be overridden.
 .. code-block:: yaml
 
     "require-dev": {
-        "campaignchain/core": "my-branch as dev-master"
+        "campaignchain/core": "dev-my-branch as dev-master"
     },
 
 Modify Sample Data
