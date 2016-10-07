@@ -3,6 +3,18 @@ Themes
 
 The look & feel of CampaignChain can be configured as follows.
 
+Skin
+~~~~
+
+The colors of the CampaignChain theme can be changed through skins. The skins
+available are the same `skins as for AdminLTE`_.
+
+You can specify the skin in `app/config/parameters.yml`:
+
+.. code-block:: yaml
+
+    campaignchain.theme.skin: skin-black
+
 Layout
 ~~~~~~
 
@@ -40,3 +52,5 @@ The setting will be applied to all subsequent pages. If you want to go back
 to the default view, simply switch by calling:
 
 `http://www.mycampaignchain.com/?campaignchain-layout=default`
+
+.. _skins as for AdminLTE: https://almsaeedstudio.com/themes/AdminLTE/documentation/index.html#layout
