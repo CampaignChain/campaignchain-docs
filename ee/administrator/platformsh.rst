@@ -58,7 +58,7 @@ Platform.sh project:
 .. code:: bash
 
     platform integration:add --type=github --project=[project-id]
-    --token=109d050c4afe3eb5a4c00938948dcd44835d86eb
+    --token=[token]
     --repository=CampaignChain/campaignchain-ee --build-pull-requests=true
     --fetch-branches=true
 
