@@ -53,12 +53,13 @@ To sync the CampaignChain EE GitHub repository with Platform.sh, `install the
 Platform.sh Command Line Interface`_ on your computer.
 
 Then execute the following command. Replace `[project-id]` with the ID of your
-Platform.sh project:
+Platform.sh project and `[github-token]` with your `personal access token`_ for
+GitHub:
 
 .. code:: bash
 
     platform integration:add --type=github --project=[project-id]
-    --token=[token]
+    --token=[github-token]
     --repository=CampaignChain/campaignchain-ee --build-pull-requests=true
     --fetch-branches=true
 
@@ -67,3 +68,4 @@ Platform.sh project:
 .. _SSH deploy key: https://docs.platform.sh/development/private-repository.html#pull-code-from-a-private-git-repository
 .. _new deploy key of the machine user: https://github.com/settings/keys
 .. _install the Platform.sh Command Line Interface: https://docs.platform.sh/overview/cli.html#how-do-i-get-it
+.. _personal access token: https://docs.platform.sh/administration/integrations/github.html#1-generate-a-token
