@@ -16,6 +16,8 @@ Features
   connected Channel (e.g. a Website page)
 - Once a Tweet was posted, regularly collect statistical data about likes
   and re-tweets
+- Ensure that the same Twitter content won't be posted within 24 hours to avoid
+  a duplicate status message error
 
 Packages
 --------

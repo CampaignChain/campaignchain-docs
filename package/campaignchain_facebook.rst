@@ -18,6 +18,8 @@ Features
   connected Channel (e.g. a Website page)
 - Once a Facebook update was posted, regularly collect statistical data about
   likes and comments
+- Ensure that the same Facebook content won't be posted within 24 hours to avoid
+  a duplicate status message error
 
 Packages
 --------

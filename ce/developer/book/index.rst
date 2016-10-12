@@ -13,3 +13,4 @@ The Developer Book
     development_environment
     sample_data
     contribute
+    error_codes
