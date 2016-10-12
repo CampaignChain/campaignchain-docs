@@ -13,4 +13,4 @@ or production environments.
 .. toctree::
     :maxdepth: 2
 
-        administrator/index
+    administrator/index
